@@ -29,9 +29,36 @@ const Section = styled.section`
   padding: 96px 0px;
 `;
 
-const headingAccentStyles = {
-  color: "#663399",
-};
+const Line = styled.span`
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background-color: rgb(226, 232, 240);
+`;
+
+const SocialMedia = styled.ul`
+  display: flex;
+  gap: 20px;
+  list-style: none;
+`;
+
+const Navigation = styled.ul`
+  padding: 0px;
+  margin: 4rem 0rem 0rem 0rem;
+  list-style: none;
+`;
+
+const JumpLinkWrapper = styled.li`
+  margin-bottom: 0.75rem;
+`;
+
+const JumpLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+`;
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -39,24 +66,53 @@ const IndexPage: React.FC<PageProps> = () => {
       <Header>
         <div>
           <h1>Paweł Feliksiak</h1>
-          <h2 style={headingAccentStyles}>FRONT-END DEVELOPER</h2>
+          <h2
+            style={{
+              color: "#663399",
+              textTransform: "uppercase",
+            }}>
+            front-end developer
+          </h2>
           <p>I build pixel-perfect, accessible products for the web</p>
 
           <nav>
-            <ul>
-              <li>About</li>
-              <li>Major Projects</li>
-              <li>All Projects</li>
-              <li>Contact</li>
-            </ul>
+            <Navigation>
+              <JumpLinkWrapper>
+                <JumpLink href="#about">
+                  <Line></Line>
+                  About
+                </JumpLink>
+              </JumpLinkWrapper>
+
+              <JumpLinkWrapper>
+                <JumpLink href="#major-projects">
+                  <Line></Line>
+                  Major Projects
+                </JumpLink>
+              </JumpLinkWrapper>
+
+              <JumpLinkWrapper>
+                <JumpLink href="#all-projects">
+                  <Line></Line>
+                  All projects
+                </JumpLink>
+              </JumpLinkWrapper>
+
+              <JumpLinkWrapper>
+                <JumpLink href="#contact">
+                  <Line></Line>
+                  Contact
+                </JumpLink>
+              </JumpLinkWrapper>
+            </Navigation>
           </nav>
         </div>
 
-        <ul>
+        <SocialMedia>
           <li>GitHub</li>
           <li>FCC</li>
           <li>LinkedIn</li>
-        </ul>
+        </SocialMedia>
       </Header>
 
       <Section>
