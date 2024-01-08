@@ -33,7 +33,8 @@ const Line = styled.span`
   display: block;
   width: 2rem;
   height: 1px;
-  background-color: rgb(226, 232, 240);
+  background-color: rgb(93, 111, 139);
+  transition: all 100ms ease;
 `;
 
 const SocialMedia = styled.ul`
@@ -46,10 +47,22 @@ const Navigation = styled.ul`
   padding: 0px;
   margin: 4rem 0rem 0rem 0rem;
   list-style: none;
+  color: rgb(93, 111, 139);
+
+  li:hover {
+    span {
+      background-color: rgb(215 223 239);
+      width: 4rem;
+    }
+    a {
+      color: rgb(215 223 239);
+    }
+  }
 `;
 
 const JumpLinkWrapper = styled.li`
   margin-bottom: 0.75rem;
+  max-width: fit-content;
 `;
 
 const JumpLink = styled.a`
@@ -58,6 +71,7 @@ const JumpLink = styled.a`
   gap: 1rem;
   color: inherit;
   text-decoration: none;
+  letter-spacing: 0.05rem
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
