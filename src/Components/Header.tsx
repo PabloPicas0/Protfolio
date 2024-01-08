@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const StyledHeader = styled.header`
@@ -105,9 +107,23 @@ const Header = () => {
       </div>
 
       <SocialMedia>
-        <li>GitHub</li>
-        <li>FCC</li>
-        <li>LinkedIn</li>
+        <li>
+          <a href="https://github.com/PabloPicas0">
+            <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
+          </a>
+        </li>
+
+        <li>
+          <a href="https://forum.freecodecamp.org/u/pabloo1/summary">
+            <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/">
+            <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
+          </a>
+        </li>
       </SocialMedia>
     </StyledHeader>
   );
