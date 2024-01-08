@@ -50,6 +50,14 @@ export const Head: HeadFC = () => {
           margin: 0px;
           background-color: rgb(15, 23, 42);
         }
+
+        .icon {
+          color: rgb(148, 163, 184);
+
+          &:hover {
+            color: whitesmoke;
+          }
+        }
         `}
       </style>
     </>
