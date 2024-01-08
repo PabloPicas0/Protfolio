@@ -108,19 +108,19 @@ const Header = () => {
 
       <SocialMedia>
         <li>
-          <a href="https://github.com/PabloPicas0">
+          <a href="https://github.com/PabloPicas0" target="_blank">
             <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
           </a>
         </li>
 
         <li>
-          <a href="https://forum.freecodecamp.org/u/pabloo1/summary">
+          <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
             <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
           </a>
         </li>
 
         <li>
-          <a href="https://www.linkedin.com/">
+          <a href="https://www.linkedin.com/" target="_blank">
             <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
           </a>
         </li>
