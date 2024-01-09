@@ -1,7 +1,11 @@
-import * as React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import styled from "@emotion/styled";
 import Header from "../Components/Header";
+
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import { ISourceOptions } from "@tsparticles/engine/types/export-types";
 
 const Main = styled.main`
   display: flex;
@@ -20,10 +24,71 @@ const Section = styled.section`
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
+  const [isParticlesLoaded, setIsParticlesLoaded] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setIsParticlesLoaded(true);
+    });
+  }, []);
+
+  const options: ISourceOptions = useMemo(
+    () => ({
+      background: {
+        color: {
+          value: "rgb(15, 23, 42)",
+        },
+      },
+      fullScreen: {
+        zIndex: -1,
+      },
+      fpsLimit: 120,
+      particles: {
+        color: {
+          value: "#ffffff",
+        },
+        links: {
+          color: "#ffffff",
+          distance: 100,
+          enable: true,
+          opacity: 0.1,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          random: true,
+          speed: 2,
+          straight: false,
+        },
+        number: {
+          density: {
+            enable: true,
+          },
+          value: 80,
+        },
+        opacity: {
+          value: 0.1,
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          value: { min: 1, max: 4 },
+        },
+      },
+      detectRetina: true,
+    }),
+    []
+  );
+
   return (
     <Main>
+      {isParticlesLoaded ? <Particles id="particles" options={options} /> : null}
       <Header />
       <Section>
+        <span>this is main content</span>
         <span>this is main content</span>
       </Section>
     </Main>
