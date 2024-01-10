@@ -59,7 +59,7 @@ const JumpLink = styled.a`
   letter-spacing: 0.05rem;
 `;
 
-const Header = () => {
+const Hero = () => {
   return (
     <StyledHeader>
       <div>
@@ -129,4 +129,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Hero;
