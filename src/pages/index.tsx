@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import styled from "@emotion/styled";
-import Header from "../Components/Header";
+import Hero from "../Components/Hero";
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -86,10 +86,21 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Main>
       {isParticlesLoaded ? <Particles id="particles" options={options} /> : null}
-      <Header />
+      <Hero />
       <Section>
-        <span>this is main content</span>
-        <span>this is main content</span>
+        <article id="about" style={{ scrollMarginTop: "8rem" }}>
+          <p style={{ lineHeight: 1.625, fontSize: "18px" }}>
+            Hi, I'm Paweł, a self-taught programmer from Poland. One day I decided to switch career from being
+            waiter/barman. What I didn't know back then is that in the process of learning to code I would
+            soon discover a true passion.
+          </p>
+
+          <p style={{ lineHeight: 1.625, fontSize: "18px" }}>
+            I have experience developing web applications, building websites and actively contributing to Open
+            Source projects. My world revolves around React - that's the technology I know best and work daily
+            with.
+          </p>
+        </article>
       </Section>
     </Main>
   );
@@ -101,6 +112,11 @@ export const Head: HeadFC = () => {
   return (
     <>
       <html lang="en" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet"></link>
       <title>Paweł Feliksiak</title>
       <body />
 
@@ -110,10 +126,15 @@ export const Head: HeadFC = () => {
           box-sizing: border-box;
         }
 
+        html {
+           scroll-behavior: smooth;
+        }
+
         body {
           color: rgb(226, 232, 240);
           margin: 0px;
           background-color: rgb(15, 23, 42);
+          font-family: 'Inter', sans-serif;
         }
 
         .icon {
