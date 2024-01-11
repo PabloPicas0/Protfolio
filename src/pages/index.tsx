@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { type HeadFC, type PageProps } from "gatsby";
+import { graphql, type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
 import Hero from "../Components/Hero";
 
@@ -7,6 +7,12 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { ISourceOptions } from "@tsparticles/engine/types/export-types";
 import Seo from "../Components/Seo";
+
+type IndexPageData = {
+  allFile: {
+    nodes: { name: string }[];
+  };
+};
 
 const Main = styled.main`
   display: flex;
@@ -24,7 +30,9 @@ const Div = styled.div`
   padding: 96px 0px;
 `;
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
+  const { data } = props;
+
   const [isParticlesLoaded, setIsParticlesLoaded] = useState(false);
 
   useEffect(() => {
@@ -103,11 +111,27 @@ const IndexPage: React.FC<PageProps> = () => {
           </p>
         </section>
 
-        <section id="main-projects"></section>
+        <section id="main-projects">
+          <ul>
+            {data.allFile.nodes.map((node) => {
+              return <li key={node.name}>{node.name}</li>;
+            })}
+          </ul>
+        </section>
       </Div>
     </Main>
   );
 };
+
+export const query = graphql`
+  query Projects {
+    allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+      nodes {
+        name
+      }
+    }
+  }
+`;
 
 export default IndexPage;
 
