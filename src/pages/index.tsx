@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
 import Hero from "../Components/Hero";
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { ISourceOptions } from "@tsparticles/engine/types/export-types";
+import Seo from "../Components/Seo";
 
 const Main = styled.main`
   display: flex;
@@ -17,7 +18,7 @@ const Main = styled.main`
   fontfamily: -apple-system, Roboto, sans-serif, serif;
 `;
 
-const Section = styled.section`
+const Div = styled.div`
   width: 50%;
   height: 150vh;
   padding: 96px 0px;
@@ -87,21 +88,23 @@ const IndexPage: React.FC<PageProps> = () => {
     <Main>
       {isParticlesLoaded ? <Particles id="particles" options={options} /> : null}
       <Hero />
-      <Section>
-        <article id="about" style={{ scrollMarginTop: "8rem" }}>
-          <p style={{ lineHeight: 1.625, fontSize: "18px" }}>
+      <Div>
+        <section id="about" style={{ scrollMarginTop: "8rem" }}>
+          <p className="about-content">
             Hi, I'm Paweł, a self-taught programmer from Poland. One day I decided to switch career from being
             waiter/barman. What I didn't know back then is that in the process of learning to code I would
             soon discover a true passion.
           </p>
 
-          <p style={{ lineHeight: 1.625, fontSize: "18px" }}>
+          <p className="about-content">
             I have experience developing web applications, building websites and actively contributing to Open
             Source projects. My world revolves around React - that's the technology I know best and work daily
             with.
           </p>
-        </article>
-      </Section>
+        </section>
+
+        <section id="main-projects"></section>
+      </Div>
     </Main>
   );
 };
@@ -110,16 +113,7 @@ export default IndexPage;
 
 export const Head: HeadFC = () => {
   return (
-    <>
-      <html lang="en" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
-        rel="stylesheet"></link>
-      <title>Paweł Feliksiak</title>
-      <body />
-
+    <Seo title="Paweł Feliksiak">
       <style>
         {`
         * {
@@ -144,8 +138,13 @@ export const Head: HeadFC = () => {
             color: whitesmoke;
           }
         }
+
+        .about-content { 
+          line-height: 1.625rem;
+          font-size: 18px;
+        }
         `}
       </style>
-    </>
+    </Seo>
   );
 };
