@@ -1,5 +1,6 @@
 import type { PageProps, HeadFC } from "gatsby";
 import React from "react";
+import Seo from "../Components/Seo";
 
 const Projects: React.FC<PageProps> = () => {
   return <h1>Welcome from projects</h1>;
@@ -7,13 +8,10 @@ const Projects: React.FC<PageProps> = () => {
 
 export default Projects;
 
+// Fix: Seo component breaks page fast load
 export const Head: HeadFC = () => {
   return (
-    <>
-      <html lang="en" />
-      <title>Paweł Feliksiak</title>
-      <body />
-
+    <Seo title="Paweł Feliksiak">
       <style>
         {`
         * {
@@ -27,6 +25,6 @@ export const Head: HeadFC = () => {
         }
         `}
       </style>
-    </>
+    </Seo>
   );
 };
