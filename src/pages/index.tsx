@@ -9,8 +9,19 @@ import { ISourceOptions } from "@tsparticles/engine/types/export-types";
 import Seo from "../Components/Seo";
 
 type IndexPageData = {
-  allFile: {
-    nodes: { name: string }[];
+  allMdx: {
+    nodes: {
+      frontmatter: {
+        banner: string;
+        date: string;
+        description: string;
+        homepageUrl: string;
+        repoUrl: string;
+        techs: string[];
+        title: string;
+      };
+      id: string;
+    }[];
   };
 };
 
@@ -113,9 +124,17 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
         <section id="main-projects">
           <ul>
-            {data.allFile.nodes.map((node) => {
-              return <li key={node.name}>{node.name}</li>;
-            })}
+            {data.allMdx.nodes
+              .filter(
+                (node) =>
+                  node.frontmatter.title === "Anime Explorer" || node.frontmatter.title === "Around The World"
+              )
+              .map((node) => {
+                const { id } = node;
+                const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
+
+                return <li key={id}>{title}</li>;
+              })}
           </ul>
         </section>
       </Div>
@@ -125,9 +144,18 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
 export const query = graphql`
   query Projects {
-    allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
-        name
+        frontmatter {
+          banner
+          date
+          description
+          homepageUrl
+          repoUrl
+          techs
+          title
+        }
+        id
       }
     }
   }
