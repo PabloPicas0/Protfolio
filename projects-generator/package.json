@@ -1,0 +1,17 @@
+{
+  "name": "projects-generator",
+  "version": "1.0.0",
+  "description": "Generates structured files from gh projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node generator.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "10.9.2",
+    "typescript": "^5.1.6"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
