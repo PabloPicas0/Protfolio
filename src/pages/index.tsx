@@ -41,6 +41,23 @@ const Div = styled.div`
   padding: 96px 0px;
 `;
 
+const Project = styled.li`
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-radius: 5px;
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: rgba(30, 41, 59, 0.5);
+    box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+  }
+`;
+
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
@@ -122,20 +139,45 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           </p>
         </section>
 
-        <section id="main-projects">
-          <ul>
+        <section id="major-projects">
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {data.allMdx.nodes
               .filter(
                 (node) =>
-                  node.frontmatter.title === "Anime Explorer" || node.frontmatter.title === "Around The World"
+                  node.frontmatter.title === "Anime Xplorer App" ||
+                  node.frontmatter.title === "Around The World App"
               )
               .map((node) => {
                 const { id } = node;
                 const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
 
-                return <li key={id}>{title}</li>;
+                return (
+                  <Project key={id}>
+                    <div>image</div>
+                    <div>
+                      <div>{title}</div>
+                      <div>{description}</div>
+                      <div>
+                        {techs.map((tech, idx) => (
+                          <div key={Math.floor(7 * Math.random() + idx)}>{tech}</div>
+                        ))}
+                      </div>
+                    </div>
+                  </Project>
+                );
               })}
           </ul>
+        </section>
+
+        <section id="projects">
+          {/* <ul>
+            {data.allMdx.nodes.map((node, idx) => {
+              const { id } = node;
+              const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
+              
+              return <li key={id}>{title}</li>;
+            })}
+          </ul> */}
         </section>
       </Div>
     </Main>
