@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
-import Hero from "../Components/Hero";
 
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import Particles from "@tsparticles/react";
 import { ISourceOptions } from "@tsparticles/engine/types/export-types";
+
+import Hero from "../Components/Hero";
 import Seo from "../Components/Seo";
+import useParticlesEngine from "../Hooks/useParticlesEngine";
 
 type IndexPageData = {
   allMdx: {
@@ -61,15 +62,7 @@ const Project = styled.li`
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
-  const [isParticlesLoaded, setIsParticlesLoaded] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setIsParticlesLoaded(true);
-    });
-  }, []);
+  const { isParticlesLoaded } = useParticlesEngine();
 
   const options: ISourceOptions = useMemo(
     () => ({
