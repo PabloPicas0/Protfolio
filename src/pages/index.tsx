@@ -133,32 +133,48 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
         </section>
 
         <section id="major-projects">
-          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {data.allMdx.nodes
-              .filter(
-                (node) =>
-                  node.frontmatter.title === "Anime Xplorer App" ||
-                  node.frontmatter.title === "Around The World App"
-              )
-              .map((node) => {
-                const { id } = node;
-                const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
+          <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>Major Projects</h2>
 
-                return (
-                  <Project key={id}>
-                    <div>image</div>
-                    <div>
-                      <div>{title}</div>
-                      <div>{description}</div>
-                      <div>
-                        {techs.map((tech, idx) => (
-                          <div key={Math.floor(7 * Math.random() + idx)}>{tech}</div>
-                        ))}
-                      </div>
-                    </div>
-                  </Project>
-                );
-              })}
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            <Project>
+              <div>image</div>
+
+              <div>
+                <h3 className="project-title">Anime Explorer</h3>
+
+                <p className="project-description">
+                  Anime Explorer is my biggest project which utilizes most of the tech stack i learned so far.
+                  It's built as MVP (minimal viable product) and its core functionality is to track user's
+                  favourite anime.
+                </p>
+
+                <div className="project-stack">
+                  <p>MongoDB</p>
+                  <p>Express</p>
+                  <p>React</p>
+                  <p>Node</p>
+                </div>
+              </div>
+            </Project>
+
+            <Project>
+              <div>image</div>
+              
+              <div>
+                <h3 className="project-title">Around the World</h3>
+
+                <p className="project-description">
+                  The app uses D3.js and React to create a highly interactive and responsive globe. Then it
+                  connects to various APIs to get some data about selected country.
+                </p>
+
+                <div className="project-stack">
+                  <p>D3</p>
+                  <p>React</p>
+                  <p>MUI</p>
+                </div>
+              </div>
+            </Project>
           </ul>
         </section>
 
@@ -218,6 +234,10 @@ export const Head: HeadFC = () => {
           font-family: 'Inter', sans-serif;
         }
 
+        section {
+          margin-bottom: 9rem
+        }
+
         .icon {
           color: rgb(148, 163, 184);
 
@@ -229,6 +249,15 @@ export const Head: HeadFC = () => {
         .about-content { 
           line-height: 1.625rem;
           font-size: 18px;
+        }
+
+        .project-title {
+          margin-top: 0px;
+        }
+
+        .project-stack { 
+          display: flex;
+          gap: 15px
         }
         `}
       </style>
