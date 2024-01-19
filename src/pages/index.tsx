@@ -120,8 +120,18 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     }),
     []
   );
-  const mernIcons = [mongodb, express, ReactIcon, NodeJs];
-  const globeIcons = [d3, ReactIcon, mui];
+  
+  const mernIcons = [
+    { src: mongodb, alt: "Photo of MongoDB database" },
+    { src: express, alt: "Photo of express library" },
+    { src: ReactIcon, alt: "Photo of React framework" },
+    { src: NodeJs, alt: "Photo of NodeJs" },
+  ];
+  const globeIcons = [
+    { src: d3, alt: "Pthoto of d3 library" },
+    { src: ReactIcon, alt: "Photo of React framework" },
+    { src: mui, alt: "Photo of mui front end library" },
+  ];
 
   return (
     <Main>
@@ -160,7 +170,9 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
                 <div className="project-stack">
                   {mernIcons.map((icon) => {
-                    return <img key={getKey()} width={26} height={26} src={icon} />;
+                    const { src, alt } = icon;
+
+                    return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
                   })}
                 </div>
               </div>
@@ -179,7 +191,9 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
                 <div className="project-stack">
                   {globeIcons.map((icon) => {
-                    return <img key={getKey()} width={26} height={26} src={icon} />;
+                    const { src, alt } = icon;
+
+                    return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
                   })}
                 </div>
               </div>
@@ -193,7 +207,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
               const { id } = node;
               const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
               
-              return <li key={id}>{title}</li>;
+              return <Project key={id}>{title}</Project>;
             })}
           </ul> */}
         </section>
