@@ -8,6 +8,14 @@ import { ISourceOptions } from "@tsparticles/engine/types/export-types";
 import Hero from "../Components/Hero";
 import Seo from "../Components/Seo";
 import useParticlesEngine from "../Hooks/useParticlesEngine";
+import getKey from "../utils/key";
+
+import ReactIcon from "../images/icons/ReactIcon.svg";
+import NodeJs from "../images/icons/nodeJs.svg";
+import express from "../images/icons/express.svg";
+import mongodb from "../images/icons/mongodb.svg";
+import d3 from "../images/icons/d3.svg";
+import mui from "../images/icons/mui.svg";
 
 type IndexPageData = {
   allMdx: {
@@ -54,7 +62,7 @@ const Project = styled.li`
   transition-duration: 0.15s;
 
   &:hover {
-    background-color: rgba(30, 41, 59, 0.5);
+    background-color: rgba(26, 41, 59, 0.5);
     box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
   }
 `;
@@ -112,6 +120,8 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     }),
     []
   );
+  const mernIcons = [mongodb, express, ReactIcon, NodeJs];
+  const globeIcons = [d3, ReactIcon, mui];
 
   return (
     <Main>
@@ -149,17 +159,16 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
                 </p>
 
                 <div className="project-stack">
-                  <p>MongoDB</p>
-                  <p>Express</p>
-                  <p>React</p>
-                  <p>Node</p>
+                  {mernIcons.map((icon) => {
+                    return <img key={getKey()} width={26} height={26} src={icon} />;
+                  })}
                 </div>
               </div>
             </Project>
 
             <Project>
               <div>image</div>
-              
+
               <div>
                 <h3 className="project-title">Around the World</h3>
 
@@ -169,9 +178,9 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
                 </p>
 
                 <div className="project-stack">
-                  <p>D3</p>
-                  <p>React</p>
-                  <p>MUI</p>
+                  {globeIcons.map((icon) => {
+                    return <img key={getKey()} width={26} height={26} src={icon} />;
+                  })}
                 </div>
               </div>
             </Project>
@@ -228,7 +237,7 @@ export const Head: HeadFC = () => {
         }
 
         body {
-          color: rgb(226, 232, 240);
+          color: rgb(226, 226, 240);
           margin: 0px;
           background-color: rgb(15, 23, 42);
           font-family: 'Inter', sans-serif;
