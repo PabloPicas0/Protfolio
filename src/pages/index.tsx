@@ -120,7 +120,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     }),
     []
   );
-  
+
   const mernIcons = [
     { src: mongodb, alt: "Photo of MongoDB database" },
     { src: express, alt: "Photo of express library" },
@@ -218,16 +218,18 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
 export const query = graphql`
   query Projects {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allMdx(
+      filter: { frontmatter: { title: { regex: "/(Path Finder|Any Task|Sorting Machine|Game of Life)/g" } } }
+    ) {
       nodes {
         frontmatter {
-          banner
-          date
           description
           homepageUrl
           repoUrl
           techs
           title
+          date
+          banner
         }
         id
       }
