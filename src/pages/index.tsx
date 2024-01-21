@@ -201,15 +201,19 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           </ul>
         </section>
 
-        <section id="projects">
-          {/* <ul>
+        <section id="all-projects">
+          <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>All Projects</h2>
+
+          <ul>
             {data.allMdx.nodes.map((node, idx) => {
               const { id } = node;
               const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
-              
+
               return <Project key={id}>{title}</Project>;
             })}
-          </ul> */}
+          </ul>
+
+          <p>View full projects archive</p>
         </section>
       </Div>
     </Main>
