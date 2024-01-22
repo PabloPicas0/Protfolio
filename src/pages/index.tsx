@@ -41,12 +41,10 @@ const Main = styled.main`
   max-width: 1280px;
   margin: 0px auto;
   padding: 0px 96px;
-  fontfamily: -apple-system, Roboto, sans-serif, serif;
 `;
 
 const Div = styled.div`
   width: 50%;
-  height: 150vh;
   padding: 96px 0px;
 `;
 
@@ -204,12 +202,28 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
         <section id="all-projects">
           <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>All Projects</h2>
 
-          <ul>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {data.allMdx.nodes.map((node, idx) => {
               const { id } = node;
               const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
 
-              return <Project key={id}>{title}</Project>;
+              return (
+                <Project key={id}>
+                  <div>image</div>
+
+                  <div>
+                    <h3 className="project-title">{title}</h3>
+
+                    <p className="project-description">{description}</p>
+
+                    <div className="project-stack">
+                      {techs.map((tech) => {
+                        return <img alt={`Image of ${tech}`} key={getKey()} width={26} height={26} />;
+                      })}
+                    </div>
+                  </div>
+                </Project>
+              );
             })}
           </ul>
 
