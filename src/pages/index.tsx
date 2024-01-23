@@ -9,6 +9,7 @@ import Hero from "../Components/Hero";
 import Seo from "../Components/Seo";
 import useParticlesEngine from "../Hooks/useParticlesEngine";
 import getKey from "../utils/key";
+import getSrc from "../utils/getSrc";
 
 import ReactIcon from "../images/icons/ReactIcon.svg";
 import NodeJs from "../images/icons/nodeJs.svg";
@@ -218,7 +219,15 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
                     <div className="project-stack">
                       {techs.map((tech) => {
-                        return <img alt={`Image of ${tech}`} key={getKey()} width={26} height={26} />;
+                        return (
+                          <img
+                            src={getSrc(tech.toLowerCase())}
+                            alt={`Image of ${tech}`}
+                            key={getKey()}
+                            width={26}
+                            height={26}
+                          />
+                        );
                       })}
                     </div>
                   </div>
