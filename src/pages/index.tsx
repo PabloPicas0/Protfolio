@@ -132,9 +132,11 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     { src: mui, alt: "Photo of mui front end library" },
   ];
 
+  const Particle = useMemo(() => <Particles id="particles" options={options} />, [])
+
   return (
     <Main>
-      {isParticlesLoaded ? <Particles id="particles" options={options} /> : null}
+      {isParticlesLoaded ? Particle  : null}
       <Hero />
       <Div>
         <section id="about" style={{ scrollMarginTop: "8rem" }}>
