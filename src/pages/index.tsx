@@ -18,7 +18,7 @@ import mongodb from "../images/icons/mongodb.svg";
 import d3 from "../images/icons/d3.svg";
 import mui from "../images/icons/mui.svg";
 
-type IndexPageData = {
+export type IndexPageData = {
   allMdx: {
     nodes: {
       frontmatter: {
@@ -65,6 +65,9 @@ const Project = styled.li`
     box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
   }
 `;
+
+
+
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
