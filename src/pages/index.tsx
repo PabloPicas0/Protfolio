@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { graphql, type HeadFC, type PageProps } from "gatsby";
+import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
 
 import Particles from "@tsparticles/react";
@@ -238,7 +238,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
             })}
           </ul>
 
-          <p>View full projects archive</p>
+          <Link to="/projects">View full projects archive</Link>
         </section>
       </Div>
     </Main>
