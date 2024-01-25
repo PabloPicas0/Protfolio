@@ -2,13 +2,15 @@ import { type PageProps, type HeadFC, graphql } from "gatsby";
 import React from "react";
 import Seo from "../Components/Seo";
 import { IndexPageData } from ".";
+import getSrc from "../utils/getSrc";
+import getKey from "../utils/key";
 
 const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
   return (
     <>
-      <h1 style={{textAlign: "center"}}>All Projects</h1>
+      <h1 style={{ textAlign: "center" }}>All Projects</h1>
 
       <table cellSpacing={20} align="center">
         <thead>
@@ -42,7 +44,16 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                       padding: 0,
                     }}>
                     {techs.map((tech) => {
-                      return <li>{tech}</li>;
+                      return (
+                        <li key={getKey()}>
+                          <img
+                            src={getSrc(tech.toLowerCase())}
+                            alt={`Image of ${tech}`}
+                            width={26}
+                            height={26}
+                          />
+                        </li>
+                      );
                     })}
                   </ul>
                 </td>
