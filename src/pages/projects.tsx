@@ -1,16 +1,28 @@
-import { type PageProps, type HeadFC, graphql } from "gatsby";
+import { type PageProps, type HeadFC, graphql, Link } from "gatsby";
 import React from "react";
 import Seo from "../Components/Seo";
 import { IndexPageData } from ".";
 import getSrc from "../utils/getSrc";
 import getKey from "../utils/key";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>All Projects</h1>
+      <Link to="/" className="projects-archive">
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          fontSize={14}
+          style={{ marginRight: "5px" }}
+          className="projects-archive-icon"
+        />
+        Go Back
+      </Link>
+
+      <h1 style={{ marginTop: "10px" }}>All Projects</h1>
 
       <table cellSpacing={20} align="center">
         <thead>
@@ -59,7 +71,9 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                 </td>
 
                 <td>
-                  <a href={homepageUrl}>Live</a>
+                  <a target="_blank" href={homepageUrl}>
+                    Live
+                  </a>
                 </td>
               </tr>
             );
@@ -118,6 +132,25 @@ export const Head: HeadFC = () => {
         th,
         td {
           padding: 10px;
+        }
+
+         .projects-archive {
+          text-decoration: none;
+          color: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            
+            .projects-archive-icon {
+              translate: -8px
+            }
+          }
+        }
+
+        .projects-archive-icon {
+          transition: translate 200ms ease;
+          transform: rotate(-180deg) !important
         }
         `}
       </style>
