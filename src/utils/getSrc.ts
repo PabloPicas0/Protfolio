@@ -10,7 +10,7 @@ import html from "../images/icons/html.svg";
 import javascript from "../images/icons/javascript.svg";
 import jest from "../images/icons/jest.svg";
 import redux from "../images/icons/redux.svg";
-import saas from "../images/icons/sass.svg";
+import sass from "../images/icons/sass.svg";
 import typescript from "../images/icons/typescript.svg";
 
 const map: { [key: string]: string } = {
@@ -26,7 +26,7 @@ const map: { [key: string]: string } = {
   javascript: javascript,
   jest: jest,
   redux: redux,
-  saas: saas,
+  sass: sass,
   typescript: typescript,
 };
 
