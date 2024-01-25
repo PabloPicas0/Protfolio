@@ -17,6 +17,8 @@ import express from "../images/icons/express.svg";
 import mongodb from "../images/icons/mongodb.svg";
 import d3 from "../images/icons/d3.svg";
 import mui from "../images/icons/mui.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export type IndexPageData = {
   allMdx: {
@@ -65,9 +67,6 @@ const Project = styled.li`
     box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
   }
 `;
-
-
-
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
@@ -135,11 +134,11 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     { src: mui, alt: "Photo of mui front end library" },
   ];
 
-  const Particle = useMemo(() => <Particles id="particles" options={options} />, [])
+  const Particle = useMemo(() => <Particles id="particles" options={options} />, []);
 
   return (
     <Main>
-      {isParticlesLoaded ? Particle  : null}
+      {isParticlesLoaded ? Particle : null}
       <Hero />
       <Div>
         <section id="about" style={{ scrollMarginTop: "8rem" }}>
@@ -241,7 +240,15 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
             })}
           </ul>
 
-          <Link to="/projects">View full projects archive</Link>
+          <Link to="/projects" className="projects-archive">
+            View full projects archive
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              fontSize={14}
+              style={{ marginLeft: "5px" }}
+              className="projects-archive-icon"
+            />
+          </Link>
         </section>
       </Div>
     </Main>
@@ -315,6 +322,24 @@ export const Head: HeadFC = () => {
         .project-stack { 
           display: flex;
           gap: 15px
+        }
+
+        .projects-archive {
+          text-decoration: none;
+          color: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            
+            .projects-archive-icon {
+              transform: translateX(8px)
+            }
+          }
+        }
+
+        .projects-archive-icon {
+          transition: transform 200ms ease;  
         }
         `}
       </style>
