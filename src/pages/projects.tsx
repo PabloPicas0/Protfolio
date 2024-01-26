@@ -12,17 +12,19 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
 
   return (
     <div style={{ maxWidth: "1024px", margin: "0 auto" }}>
-      <Link to="/" className="projects-archive">
-        <FontAwesomeIcon
-          icon={faArrowRight}
-          fontSize={14}
-          style={{ marginRight: "5px" }}
-          className="projects-archive-icon"
-        />
-        Go Back
-      </Link>
+      <header style={{ marginTop: "8rem" }}>
+        <Link to="/" className="projects-archive">
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            fontSize={14}
+            style={{ marginRight: "8px" }}
+            className="projects-archive-icon"
+          />
+          Go Back
+        </Link>
 
-      <h1 style={{ marginTop: "10px" }}>All Projects</h1>
+        <h1 style={{ marginTop: "10px", fontSize: "2.5em" }}>All Projects</h1>
+      </header>
 
       <table cellSpacing={20} width={"100%"}>
         <thead
@@ -111,7 +113,6 @@ export const query = graphql`
 
 export default Projects;
 
-// Fix: Seo component breaks page fast load
 export const Head: HeadFC = () => {
   return (
     <Seo title="Paweł Feliksiak">
@@ -125,6 +126,7 @@ export const Head: HeadFC = () => {
           color: rgb(226, 232, 240);
           margin: 0px;
           background-color: rgb(15, 23, 42);
+          font-family: 'Inter', sans-serif;
         }
 
         table {
