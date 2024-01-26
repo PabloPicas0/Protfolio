@@ -1,9 +1,12 @@
 import { type PageProps, type HeadFC, graphql, Link } from "gatsby";
 import React from "react";
 import Seo from "../Components/Seo";
+
 import { IndexPageData } from ".";
+
 import getSrc from "../utils/getSrc";
 import getKey from "../utils/key";
+
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
