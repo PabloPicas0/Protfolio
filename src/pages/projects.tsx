@@ -11,7 +11,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
   return (
-    <>
+    <div style={{ maxWidth: "1024px", margin: "0 auto" }}>
       <Link to="/" className="projects-archive">
         <FontAwesomeIcon
           icon={faArrowRight}
@@ -24,8 +24,14 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
 
       <h1 style={{ marginTop: "10px" }}>All Projects</h1>
 
-      <table cellSpacing={20} align="center">
-        <thead>
+      <table cellSpacing={20} width={"100%"}>
+        <thead
+          style={{
+            position: "sticky",
+            top: 0,
+            backdropFilter: "blur(5px)",
+            backgroundColor: "rgba(15,23,42,.75)",
+          }}>
           <tr>
             <th>Date</th>
             <th>Project</th>
@@ -40,7 +46,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             const { id } = node;
 
             return (
-              <tr key={id}>
+              <tr key={id} style={{ textAlign: "center" }}>
                 <td>{date}</td>
 
                 <td align="center">{title}</td>
@@ -80,7 +86,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
           })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
