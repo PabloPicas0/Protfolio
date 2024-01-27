@@ -4,6 +4,8 @@ import Seo from "../Components/Seo";
 
 import { IndexPageData } from ".";
 
+import "../string.extensions";
+
 import getSrc from "../utils/getSrc";
 import getKey from "../utils/key";
 
@@ -54,7 +56,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
               <tr key={id} style={{ textAlign: "center" }}>
                 <td>{date}</td>
 
-                <td align="center">{title}</td>
+                <td align="center">{title.toPascalCase()}</td>
 
                 <td>
                   <ul
@@ -142,7 +144,7 @@ export const Head: HeadFC = () => {
 
         th,
         td {
-          padding: 10px;
+          padding: 1rem 1rem 1rem 0px;
         }
 
          .projects-archive {
