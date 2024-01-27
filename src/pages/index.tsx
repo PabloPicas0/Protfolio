@@ -240,7 +240,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
             })}
           </ul>
 
-          <Link to="/projects" className="projects-archive">
+          <Link to="/projects" className="projects-archive" >
             View full projects archive
             <FontAwesomeIcon
               icon={faArrowRight}
@@ -285,11 +285,7 @@ export const Head: HeadFC = () => {
         {`
         * {
           box-sizing: border-box;
-        }
-
-        html {
-           scroll-behavior: smooth;
-        }
+        } 
 
         body {
           color: rgb(226, 226, 240);
