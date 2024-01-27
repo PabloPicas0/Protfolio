@@ -53,10 +53,12 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             const { id } = node;
 
             return (
-              <tr key={id} style={{ textAlign: "center" }}>
+              <tr key={id} style={{ textAlign: "center", color: "rgba(226, 232, 240, 0.7)" }}>
                 <td>{date}</td>
 
-                <td align="center">{title.toPascalCase()}</td>
+                <td align="center" style={{ color: "rgb(226, 232, 240)" }}>
+                  {title.toPascalCase()}
+                </td>
 
                 <td>
                   <ul
@@ -86,6 +88,12 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                 <td>
                   <a target="_blank" href={homepageUrl}>
                     Live
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      fontSize={13}
+                      style={{ marginLeft: "5px" }}
+                      className="projects-link-icon"
+                    />
                   </a>
                 </td>
               </tr>
@@ -163,7 +171,26 @@ export const Head: HeadFC = () => {
 
         .projects-archive-icon {
           transition: translate 200ms ease;
-          transform: rotate(-180deg) !important
+          transform: rotate(-180deg) !important;
+        }
+
+        .projects-link-icon {
+          transition: all 200ms ease;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          text-underline-offset: 5px;
+        }
+
+        a:hover {
+          color:  aquamarine;
+          text-decoration: underline;
+
+          .projects-link-icon {
+            transform: translateX(8px);
+          }
         }
         `}
       </style>
