@@ -54,15 +54,15 @@ const ProjectLink = styled.a`
 `;
 
 const mernIcons = [
-  { src: mongodb, alt: "Photo of MongoDB database" },
-  { src: express, alt: "Photo of express library" },
-  { src: ReactIcon, alt: "Photo of React framework" },
-  { src: NodeJs, alt: "Photo of NodeJs" },
+  { src: mongodb, alt: "MongoDB icon" },
+  { src: express, alt: "Express icon" },
+  { src: ReactIcon, alt: "React icon" },
+  { src: NodeJs, alt: "NodeJS icon" },
 ];
 const globeIcons = [
-  { src: d3, alt: "Pthoto of d3 library" },
-  { src: ReactIcon, alt: "Photo of React framework" },
-  { src: mui, alt: "Photo of mui front end library" },
+  { src: d3, alt: "D3 icon" },
+  { src: ReactIcon, alt: "React icon" },
+  { src: mui, alt: "MUI icon" },
 ];
 
 const Projects = (props: { data: IndexPageData }) => {
@@ -93,7 +93,7 @@ const Projects = (props: { data: IndexPageData }) => {
                 {mernIcons.map((icon) => {
                   const { src, alt } = icon;
 
-                  return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
+                  return <img alt={alt} key={getKey()} width={26} height={26} src={src} title={`${alt.split(" ", 1)}`}/>;
                 })}
               </div>
 
@@ -124,7 +124,16 @@ const Projects = (props: { data: IndexPageData }) => {
                 {globeIcons.map((icon) => {
                   const { src, alt } = icon;
 
-                  return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
+                  return (
+                    <img
+                      alt={alt}
+                      key={getKey()}
+                      width={26}
+                      height={26}
+                      src={src}
+                      title={`${alt.split(" ", 1)}`}
+                    />
+                  );
                 })}
               </div>
 
@@ -148,7 +157,7 @@ const Projects = (props: { data: IndexPageData }) => {
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           {data.allMdx.nodes.map((node, idx) => {
             const { id } = node;
-            const { banner, date, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
+            const { banner, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
 
             return (
               <Project key={id}>
@@ -168,6 +177,7 @@ const Projects = (props: { data: IndexPageData }) => {
                           key={getKey()}
                           width={26}
                           height={26}
+                          title={tech}
                         />
                       );
                     })}
