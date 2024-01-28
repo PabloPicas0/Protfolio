@@ -34,6 +34,25 @@ const Project = styled.li`
   }
 `;
 
+const ProjectLinksWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 1.4rem;
+`;
+
+const ProjectLink = styled.a`
+  border: 1px solid;
+  padding: 0.4rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: rgba(226, 232, 240, 0.7);
+
+  &:hover {
+    color: aquamarine;
+  }
+`;
+
 const mernIcons = [
   { src: mongodb, alt: "Photo of MongoDB database" },
   { src: express, alt: "Photo of express library" },
@@ -130,6 +149,16 @@ const Projects = (props: { data: IndexPageData }) => {
                       );
                     })}
                   </div>
+
+                  <ProjectLinksWrapper>
+                    <ProjectLink target="_blank" href={repoUrl}>
+                      Source Code
+                    </ProjectLink>
+
+                    <ProjectLink target="_blank" href={homepageUrl}>
+                      Project Live
+                    </ProjectLink>
+                  </ProjectLinksWrapper>
                 </div>
               </Project>
             );
