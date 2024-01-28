@@ -72,6 +72,9 @@ const Projects = (props: { data: IndexPageData }) => {
     <>
       <section id="major-projects">
         <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>Major Projects</h2>
+        <p style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          Projects that I spent the most time working on and the ones that I constantly keep updating.
+        </p>
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
@@ -93,6 +96,16 @@ const Projects = (props: { data: IndexPageData }) => {
                   return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
                 })}
               </div>
+
+              <ProjectLinksWrapper>
+                <ProjectLink target="_blank" href="https://github.com/PabloPicas0/Anime-Xplorer-App">
+                  Source Code
+                </ProjectLink>
+
+                <ProjectLink target="_blank" href="https://pablopicas0.github.io/Anime-Xplorer-App/">
+                  Project Live
+                </ProjectLink>
+              </ProjectLinksWrapper>
             </div>
           </Project>
 
@@ -114,6 +127,16 @@ const Projects = (props: { data: IndexPageData }) => {
                   return <img alt={alt} key={getKey()} width={26} height={26} src={src} />;
                 })}
               </div>
+
+              <ProjectLinksWrapper>
+                <ProjectLink target="_blank" href="https://github.com/PabloPicas0/Around-The-World-App">
+                  Source Code
+                </ProjectLink>
+
+                <ProjectLink target="_blank" href="https://pablopicas0.github.io/Around-The-World-App/">
+                  Project Live
+                </ProjectLink>
+              </ProjectLinksWrapper>
             </div>
           </Project>
         </ul>
