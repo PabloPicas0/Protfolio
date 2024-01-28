@@ -185,7 +185,7 @@ export const Head: HeadFC = () => {
         }
 
         a:hover {
-          color:  aquamarine;
+          color: aquamarine;
           text-decoration: underline;
 
           .projects-link-icon {
