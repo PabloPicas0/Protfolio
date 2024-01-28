@@ -65,12 +65,15 @@ const globeIcons = [
   { src: mui, alt: "MUI icon" },
 ];
 
-const ProjectsDetails = (props: { data: IndexPageData }) => {
-  const { data } = props;
+const ProjectsDetails = (props: {
+  data: IndexPageData;
+  refSections: React.MutableRefObject<HTMLElement[]>;
+}) => {
+  const { data, refSections } = props;
 
   return (
     <>
-      <section id="major-projects">
+      <section id="major-projects" ref={(e) => (e ? (refSections.current[1] = e) : e)}>
         <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>Major Projects</h2>
         <p style={{ textAlign: "center", marginBottom: "3.5rem" }}>
           Projects that I spent the most time working on and the ones that I constantly keep updating.
@@ -93,7 +96,16 @@ const ProjectsDetails = (props: { data: IndexPageData }) => {
                 {mernIcons.map((icon) => {
                   const { src, alt } = icon;
 
-                  return <img alt={alt} key={getKey()} width={26} height={26} src={src} title={`${alt.split(" ", 1)}`}/>;
+                  return (
+                    <img
+                      alt={alt}
+                      key={getKey()}
+                      width={26}
+                      height={26}
+                      src={src}
+                      title={`${alt.split(" ", 1)}`}
+                    />
+                  );
                 })}
               </div>
 
@@ -151,7 +163,7 @@ const ProjectsDetails = (props: { data: IndexPageData }) => {
         </ul>
       </section>
 
-      <section id="all-projects">
+      <section id="all-projects" ref={(e) => (e ? (refSections.current[2] = e) : e)}>
         <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>All Projects</h2>
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>

@@ -1,8 +1,13 @@
 import React from "react";
 
-const About = () => {
+const About = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) => {
+  const { refSections } = props;
+
   return (
-    <section id="about" style={{ scrollMarginTop: "8rem" }}>
+    <section
+      id="about"
+      style={{ scrollMarginTop: "8rem" }}
+      ref={(e) => (e ? refSections.current[0] = e : e)}>
       <p className="about-content">
         Hi, I'm Paweł, a self-taught programmer from Poland. One day I decided to switch career from being
         waiter/barman. What I didn't know back then is that in the process of learning to code I would soon
@@ -18,4 +23,4 @@ const About = () => {
   );
 };
 
-export default About
+export default About;

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
 
@@ -47,6 +47,8 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
   const { isParticlesLoaded } = useParticlesEngine();
+
+  const refSections = useRef<HTMLElement[]>([]);
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -105,8 +107,8 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
       <Hero />
 
       <Div>
-        <About />
-        <ProjectsDetails data={data} />
+        <About refSections={refSections} />
+        <ProjectsDetails data={data} refSections={refSections} />
       </Div>
     </Main>
   );
