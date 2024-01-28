@@ -78,6 +78,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                             alt={`Image of ${tech}`}
                             width={26}
                             height={26}
+                            title={tech}
                           />
                         </li>
                       );
