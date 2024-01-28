@@ -10,7 +10,7 @@ import Seo from "../Components/Seo";
 import useParticlesEngine from "../Hooks/useParticlesEngine";
 
 import About from "../Components/About";
-import Projects from "../Components/Projects";
+import ProjectsDetails from "../Components/ProjectsDetails";
 
 export type IndexPageData = {
   allMdx: {
@@ -106,7 +106,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
 
       <Div>
         <About />
-        <Projects data={data} />
+        <ProjectsDetails data={data} />
       </Div>
     </Main>
   );

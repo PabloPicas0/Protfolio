@@ -65,7 +65,7 @@ const globeIcons = [
   { src: mui, alt: "MUI icon" },
 ];
 
-const Projects = (props: { data: IndexPageData }) => {
+const ProjectsDetails = (props: { data: IndexPageData }) => {
   const { data } = props;
 
   return (
@@ -212,4 +212,4 @@ const Projects = (props: { data: IndexPageData }) => {
   );
 };
 
-export default Projects;
+export default ProjectsDetails;
