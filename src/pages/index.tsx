@@ -66,7 +66,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           }
         });
       },
-      { rootMargin: "-25% 0px -63% 0px" }
+      { rootMargin: "-25% 0px -65% 0px" }
     );
 
     refSections.current.forEach((section) => observer.observe(section));
@@ -219,6 +219,15 @@ export const Head: HeadFC = () => {
 
         .projects-archive-icon {
           transition: transform 200ms ease;  
+        }
+
+        .active {
+          color:  rgb(226, 226, 240);
+
+          & > span {
+            width: 4rem;
+            background-color: rgb(226, 226, 240);
+          }
         }
         `}
       </style>
