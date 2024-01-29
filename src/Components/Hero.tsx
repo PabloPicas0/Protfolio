@@ -59,7 +59,9 @@ const JumpLink = styled.a`
   letter-spacing: 0.05rem;
 `;
 
-const Hero = () => {
+const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement | null> }) => {
+  const { refNavigation } = props;
+
   return (
     <StyledHeader>
       <div>
@@ -73,10 +75,10 @@ const Hero = () => {
         </h2>
         <p>I build pixel-perfect, accessible products for the web</p>
 
-        <nav>
+        <nav ref={refNavigation}>
           <Navigation>
             <JumpLinkWrapper>
-              <JumpLink href="#about">
+              <JumpLink href="#about" className="active">
                 <Line></Line>
                 About
               </JumpLink>
