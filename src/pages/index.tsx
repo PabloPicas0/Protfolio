@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import styled from "@emotion/styled";
 
@@ -49,6 +49,30 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { isParticlesLoaded } = useParticlesEngine();
 
   const refSections = useRef<HTMLElement[]>([]);
+  const refNavigation = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const { target, isIntersecting } = entry;
+
+          const prevSection = refNavigation.current?.querySelector(".active");
+          const nextSection = refNavigation.current?.querySelector(`a[href='#${target.id}']`);
+
+          if (isIntersecting) {
+            prevSection?.classList.remove("active");
+            nextSection?.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -63% 0px" }
+    );
+
+    refSections.current.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -104,7 +128,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   return (
     <Main>
       {isParticlesLoaded ? Particle : null}
-      <Hero />
+      <Hero refNavigation={refNavigation} />
 
       <Div>
         <About refSections={refSections} />
