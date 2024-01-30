@@ -28,7 +28,7 @@ const SocialMedia = styled.ul`
   list-style: none;
 `;
 
-const Navigation = styled.ul`
+const Ul = styled.ul`
   padding: 0px;
   margin: 4rem 0rem 0rem 0rem;
   list-style: none;
@@ -45,12 +45,12 @@ const Navigation = styled.ul`
   }
 `;
 
-const JumpLinkWrapper = styled.li`
+const Li = styled.li`
   margin-bottom: 0.75rem;
   max-width: fit-content;
 `;
 
-const JumpLink = styled.a`
+const Anchor = styled.a`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -76,35 +76,35 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
         <p>I build pixel-perfect, accessible products for the web</p>
 
         <nav ref={refNavigation}>
-          <Navigation>
-            <JumpLinkWrapper>
-              <JumpLink href="#about" className="active">
+          <Ul>
+            <Li>
+              <Anchor href="#about" className="active">
                 <Line></Line>
                 About
-              </JumpLink>
-            </JumpLinkWrapper>
+              </Anchor>
+            </Li>
 
-            <JumpLinkWrapper>
-              <JumpLink href="#major-projects">
+            <Li>
+              <Anchor href="#major-projects">
                 <Line></Line>
                 Major Projects
-              </JumpLink>
-            </JumpLinkWrapper>
+              </Anchor>
+            </Li>
 
-            <JumpLinkWrapper>
-              <JumpLink href="#all-projects">
+            <Li>
+              <Anchor href="#all-projects">
                 <Line></Line>
                 All projects
-              </JumpLink>
-            </JumpLinkWrapper>
+              </Anchor>
+            </Li>
 
-            <JumpLinkWrapper>
-              <JumpLink href="#contact">
+            <Li>
+              <Anchor href="#contact">
                 <Line></Line>
                 Contact
-              </JumpLink>
-            </JumpLinkWrapper>
-          </Navigation>
+              </Anchor>
+            </Li>
+          </Ul>
         </nav>
       </div>
 
