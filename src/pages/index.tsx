@@ -44,6 +44,11 @@ const Div = styled.div`
   padding: 96px 0px;
 `;
 
+// TODO: change inputs to controlled in contact component
+// TODO: add more margin in about section
+// TODO: add images
+// TODO: make mobile version of site
+
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
@@ -57,7 +62,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
       (entries) => {
         entries.forEach((entry) => {
           const { target, isIntersecting } = entry;
-          
+
           const prevSection = refNavigation.current?.querySelector(".active");
           const nextSection = refNavigation.current?.querySelector(`a[href='#${target.id}']`);
 
