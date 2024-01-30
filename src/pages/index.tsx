@@ -11,6 +11,7 @@ import useParticlesEngine from "../Hooks/useParticlesEngine";
 
 import About from "../Components/About";
 import ProjectsDetails from "../Components/ProjectsDetails";
+import Contact from "../Components/Contact";
 
 export type IndexPageData = {
   allMdx: {
@@ -56,7 +57,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
       (entries) => {
         entries.forEach((entry) => {
           const { target, isIntersecting } = entry;
-
+          
           const prevSection = refNavigation.current?.querySelector(".active");
           const nextSection = refNavigation.current?.querySelector(`a[href='#${target.id}']`);
 
@@ -66,7 +67,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           }
         });
       },
-      { rootMargin: "-25% 0px -65% 0px" }
+      { rootMargin: "-25% 0px -60% 0px" }
     );
 
     refSections.current.forEach((section) => observer.observe(section));
@@ -133,6 +134,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
       <Div>
         <About refSections={refSections} />
         <ProjectsDetails data={data} refSections={refSections} />
+        <Contact refSections={refSections} />
       </Div>
     </Main>
   );
