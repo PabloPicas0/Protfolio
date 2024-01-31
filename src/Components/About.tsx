@@ -6,6 +6,7 @@ const About = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) =>
   return (
     <section
       id="about"
+      className="about-section"
       style={{ scrollMarginTop: "8rem" }}
       ref={(e) => (e ? refSections.current[0] = e : e)}>
       <p className="about-content">

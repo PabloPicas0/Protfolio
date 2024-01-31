@@ -196,6 +196,10 @@ export const Head: HeadFC = () => {
           }
         }
 
+        .about-section {
+          margin-bottom: 12rem !important
+        }
+         
         .about-content { 
           line-height: 1.625rem;
           font-size: 18px;
