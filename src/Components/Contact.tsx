@@ -36,16 +36,20 @@ const Contact = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) 
   const { refSections } = props;
 
   return (
-    <section id="contact" style={{ display: "grid" }} ref={(e) => (e ? (refSections.current[3] = e) : e)}>
-      <h2 style={{ textAlign: "center", letterSpacing: "0.05rem" }}>Contact me!</h2>
+    <>
+      <section id="contact" style={{ display: "grid" }} ref={(e) => (e ? (refSections.current[3] = e) : e)}>
+        <h2 style={{ textAlign: "center", letterSpacing: "0.05rem" }}>Contact me!</h2>
 
-      <Label htmlFor="email">Email</Label>
-      <Input id="email" type="email" required placeholder="tom@gamil.com" />
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" type="email" required placeholder="tom@gamil.com" />
 
-      <Label htmlFor="message">Message</Label>
-      <TextArea id="message" required placeholder="Hi, how are you today ?" rows={4} />
-      <Button>Send</Button>
-    </section>
+        <Label htmlFor="message">Message</Label>
+        <TextArea id="message" required placeholder="Hi, how are you today ?" rows={4} />
+        <Button>Send</Button>
+      </section>
+
+      <footer style={{ textAlign: "center", color: "rgba(255,255,255,0.4)" }}>Made by Paweł Feliksiak</footer>
+    </>
   );
 };
 
