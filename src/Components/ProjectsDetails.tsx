@@ -17,6 +17,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import getKey from "../utils/key";
 import getSrc from "../utils/getSrc";
 
+import animeExplorerImage from "../../projects/anime-xplorer-app/images/banner.png";
+import aroundTheWorldImage from "../../projects/around-the-world-app/images/banner.png";
+
 const Project = styled.li`
   display: flex;
   gap: 1.5rem;
@@ -81,7 +84,7 @@ const ProjectsDetails = (props: {
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
-            <div>image</div>
+            <img src={animeExplorerImage} width={200} height={48} />
 
             <div>
               <h3 className="project-title">Anime Explorer</h3>
@@ -122,7 +125,7 @@ const ProjectsDetails = (props: {
           </Project>
 
           <Project>
-            <div>image</div>
+            <img src={aroundTheWorldImage} width={200} height={48} />
 
             <div>
               <h3 className="project-title">Around the World</h3>
@@ -173,7 +176,7 @@ const ProjectsDetails = (props: {
 
             return (
               <Project key={id}>
-                <div>image</div>
+                <img src={banner} />
 
                 <div>
                   <h3 className="project-title">{title}</h3>
