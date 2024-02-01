@@ -44,10 +44,9 @@ const Div = styled.div`
   padding: 96px 0px;
 `;
 
-// TODO: change inputs to controlled in contact component
-// TODO: add more margin in about section
 // TODO: add images
 // TODO: make mobile version of site
+// TODO: figure out how to send emails from site
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
