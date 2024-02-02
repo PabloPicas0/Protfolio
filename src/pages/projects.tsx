@@ -117,7 +117,6 @@ export const query = graphql`
           techs
           title
           date(formatString: "DD-MM-YYYY")
-          banner
         }
         id
       }
