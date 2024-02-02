@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useRef } from "react";
+
 import { graphql, type HeadFC, type PageProps } from "gatsby";
+import { ImageDataLike } from "gatsby-plugin-image";
+
 import styled from "@emotion/styled";
 
 import Particles from "@tsparticles/react";
@@ -17,7 +20,7 @@ export type IndexPageData = {
   allMdx: {
     nodes: {
       frontmatter: {
-        banner: string;
+        banner: ImageDataLike;
         date: string;
         description: string;
         homepageUrl: string;
@@ -157,7 +160,11 @@ export const query = graphql`
           techs
           title
           date
-          banner
+          banner {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         id
       }
