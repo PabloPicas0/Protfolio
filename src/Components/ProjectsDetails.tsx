@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import styled from "@emotion/styled";
 
@@ -173,10 +174,17 @@ const ProjectsDetails = (props: {
           {data.allMdx.nodes.map((node, idx) => {
             const { id } = node;
             const { banner, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
+            const image = getImage(banner);
 
             return (
               <Project key={id}>
-                <img src={banner} />
+                {image ? (
+                  <GatsbyImage
+                    image={image}
+                    alt={`Photo of ${title} app`}
+                    style={{ width: "200px", height: "40px" }}
+                  />
+                ) : null}
 
                 <div>
                   <h3 className="project-title">{title}</h3>
