@@ -171,7 +171,7 @@ const ProjectsDetails = (props: {
         <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>All Projects</h2>
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-          {data.allMdx.nodes.map((node, idx) => {
+          {data.allMdx.nodes.map((node) => {
             const { id } = node;
             const { banner, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
             const image = getImage(banner);
@@ -179,11 +179,9 @@ const ProjectsDetails = (props: {
             return (
               <Project key={id}>
                 {image ? (
-                  <GatsbyImage
-                    image={image}
-                    alt={`Photo of ${title} app`}
-                    style={{ width: "200px", height: "40px" }}
-                  />
+                  <div>
+                    <GatsbyImage image={image} alt={`Photo of ${title} app`} />
+                  </div>
                 ) : null}
 
                 <div>
