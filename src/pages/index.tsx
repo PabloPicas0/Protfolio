@@ -47,7 +47,6 @@ const Div = styled.div`
   padding: 96px 0px;
 `;
 
-// TODO: add images
 // TODO: make mobile version of site
 // TODO: figure out how to send emails from site
 
