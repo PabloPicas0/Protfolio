@@ -89,9 +89,9 @@ const ProjectsDetails = (props: {
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
-            <img src={animeExplorerImage} width={200} height={48} className="project-image" />
+            <img src={animeExplorerImage} width={120} height={70} className="project-image" />
 
-            <div>
+            <div style={{ flex: "1" }}>
               <h3 className="project-title">Anime Explorer</h3>
 
               <p className="project-description">
@@ -130,9 +130,9 @@ const ProjectsDetails = (props: {
           </Project>
 
           <Project>
-            <img src={aroundTheWorldImage} width={200} height={48} className="project-image" />
+            <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
 
-            <div>
+            <div style={{ flex: "1" }}>
               <h3 className="project-title">Around the World</h3>
 
               <p className="project-description">
@@ -183,12 +183,12 @@ const ProjectsDetails = (props: {
             return (
               <Project key={id}>
                 {image ? (
-                  <div>
+                  <div style={{ width: "120px" }}>
                     <GatsbyImage image={image} alt={`Photo of ${title} app`} className="project-image" />
                   </div>
                 ) : null}
 
-                <div>
+                <div style={{ flex: "1" }}>
                   <h3 className="project-title">{title}</h3>
 
                   <p className="project-description">{description}</p>
