@@ -245,6 +245,12 @@ export const Head: HeadFC = () => {
             background-color: rgb(226, 226, 240);
           }
         }
+
+        .project-image {
+          border: 2px solid;
+          border-radius: 0.25rem;
+          border-color: rgba(226, 232, 240, 0.1);
+        }
         `}
       </style>
     </Seo>

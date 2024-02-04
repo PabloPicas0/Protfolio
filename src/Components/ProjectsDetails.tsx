@@ -35,6 +35,10 @@ const Project = styled.li`
   &:hover {
     background-color: rgba(26, 41, 59, 0.5);
     box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+
+    .project-image {
+      background-color: rgba(226, 232, 240, 0.3);
+    }
   }
 `;
 
@@ -85,7 +89,7 @@ const ProjectsDetails = (props: {
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
-            <img src={animeExplorerImage} width={200} height={48} />
+            <img src={animeExplorerImage} width={200} height={48} className="project-image" />
 
             <div>
               <h3 className="project-title">Anime Explorer</h3>
@@ -126,7 +130,7 @@ const ProjectsDetails = (props: {
           </Project>
 
           <Project>
-            <img src={aroundTheWorldImage} width={200} height={48} />
+            <img src={aroundTheWorldImage} width={200} height={48} className="project-image" />
 
             <div>
               <h3 className="project-title">Around the World</h3>
@@ -180,7 +184,7 @@ const ProjectsDetails = (props: {
               <Project key={id}>
                 {image ? (
                   <div>
-                    <GatsbyImage image={image} alt={`Photo of ${title} app`} />
+                    <GatsbyImage image={image} alt={`Photo of ${title} app`} className="project-image" />
                   </div>
                 ) : null}
 
