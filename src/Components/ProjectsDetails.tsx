@@ -20,6 +20,7 @@ import getSrc from "../utils/getSrc";
 
 import animeExplorerImage from "../../projects/anime-xplorer-app/images/banner.png";
 import aroundTheWorldImage from "../../projects/around-the-world-app/images/banner.png";
+import useWindowWidth from "../Hooks/useWindowDimensions";
 
 const Project = styled.li`
   display: flex;
@@ -39,6 +40,11 @@ const Project = styled.li`
     .project-image {
       background-color: rgba(226, 232, 240, 0.3);
     }
+  }
+
+  @media (max-width: 445px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -79,6 +85,8 @@ const ProjectsDetails = (props: {
 }) => {
   const { data, refSections } = props;
 
+  const windowWidth = useWindowWidth();
+
   return (
     <>
       <section id="major-projects" ref={(e) => (e ? (refSections.current[1] = e) : e)}>
@@ -89,10 +97,18 @@ const ProjectsDetails = (props: {
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
-            <img src={animeExplorerImage} width={120} height={70} className="project-image" />
+            {windowWidth > 445 ? (
+              <img src={animeExplorerImage} width={120} height={70} className="project-image" />
+            ) : null}
 
             <div style={{ flex: "1" }}>
               <h3 className="project-title">Anime Explorer</h3>
+
+              {windowWidth < 445 ? (
+                <div style={{ margin: "0 auto", width: "fit-content" }}>
+                  <img src={animeExplorerImage} width={120} height={70} className="project-image" />
+                </div>
+              ) : null}
 
               <p className="project-description">
                 Anime Explorer is my biggest project which utilizes most of the tech stack i learned so far.
@@ -130,10 +146,18 @@ const ProjectsDetails = (props: {
           </Project>
 
           <Project>
-            <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
+            {windowWidth > 445 ? (
+              <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
+            ) : null}
 
             <div style={{ flex: "1" }}>
               <h3 className="project-title">Around the World</h3>
+
+              {windowWidth < 445 ? (
+                <div style={{ margin: "0 auto", width: "fit-content" }}>
+                  <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
+                </div>
+              ) : null}
 
               <p className="project-description">
                 The app uses D3.js and React to create a highly interactive and responsive globe. Then it
@@ -182,7 +206,7 @@ const ProjectsDetails = (props: {
 
             return (
               <Project key={id}>
-                {image ? (
+                {image && windowWidth > 445 ? (
                   <div style={{ width: "120px" }}>
                     <GatsbyImage image={image} alt={`Photo of ${title} app`} className="project-image" />
                   </div>
@@ -190,6 +214,12 @@ const ProjectsDetails = (props: {
 
                 <div style={{ flex: "1" }}>
                   <h3 className="project-title">{title}</h3>
+
+                  {image && windowWidth < 445 ? (
+                    <div style={{ width: "120px", margin: "0 auto" }}>
+                      <GatsbyImage image={image} alt={`Photo of ${title} app`} className="project-image" />
+                    </div>
+                  ) : null}
 
                   <p className="project-description">{description}</p>
 
