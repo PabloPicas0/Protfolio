@@ -8,14 +8,14 @@ const About = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) =>
       id="about"
       className="about-section"
       style={{ scrollMarginTop: "8rem" }}
-      ref={(e) => (e ? refSections.current[0] = e : e)}>
-      <p className="about-content">
+      ref={(e) => (e ? (refSections.current[0] = e) : e)}>
+      <p className="about-content" style={{ textAlign: "justify" }}>
         Hi, I'm Paweł, a self-taught programmer from Poland. One day I decided to switch career from being
         waiter/barman. What I didn't know back then is that in the process of learning to code I would soon
         discover a true passion.
       </p>
 
-      <p className="about-content">
+      <p className="about-content" style={{ textAlign: "justify" }}>
         I have experience developing web applications, building websites and actively contributing to Open
         Source projects. My world revolves around React - that's the technology I know best and work daily
         with.
