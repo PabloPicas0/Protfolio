@@ -40,11 +40,21 @@ const Main = styled.main`
   max-width: 1280px;
   margin: 0px auto;
   padding: 0px 96px;
+
+  @media (max-width: 1065px) {
+    display: block;
+    padding: 0px;
+  }
 `;
 
 const Div = styled.div`
   width: 50%;
   padding: 96px 0px;
+
+  @media (max-width: 1065px) {
+    width: initial;
+    padding: 96px 10px;
+  }
 `;
 
 // TODO: make mobile version of site
@@ -212,11 +222,19 @@ export const Head: HeadFC = () => {
 
         .project-title {
           margin-top: 0px;
+
+          @media (max-width: 445px) {
+            text-align: center;
+          }
+        }
+
+        .project-description {
+          text-align: justify;
         }
 
         .project-stack { 
           display: flex;
-          gap: 15px
+          gap: 15px;
         }
 
         .projects-archive {
