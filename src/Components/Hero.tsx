@@ -1,7 +1,13 @@
-import styled from "@emotion/styled";
-import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+
+
+import styled from "@emotion/styled";
+
+import useWindowWidth from "../Hooks/useWindowDimensions";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const StyledHeader = styled.header`
   width: 50%;
@@ -12,6 +18,14 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   position: sticky;
   top: 0;
+
+  @media (max-width: 1065px) {
+    flex-direction: row;
+    width: initial;
+    padding: 0.8rem 2rem;
+    background-color: #663399;
+    z-index: 1337;
+  }
 `;
 
 const Line = styled.span`
@@ -62,71 +76,82 @@ const Anchor = styled.a`
 const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement | null> }) => {
   const { refNavigation } = props;
 
+  const windowWidth = useWindowWidth();
+
   return (
     <StyledHeader>
-      <div>
-        <h1>Paweł Feliksiak</h1>
-        <h2
-          style={{
-            color: "#663399",
-            textTransform: "uppercase",
-          }}>
-          front-end developer
-        </h2>
-        <p>I build pixel-perfect, accessible products for the web</p>
+      {windowWidth > 1065 ? (
+        <>
+          <div>
+            <h1>Paweł Feliksiak</h1>
+            <h2
+              style={{
+                color: "#663399",
+                textTransform: "uppercase",
+              }}>
+              front-end developer
+            </h2>
+            <p>I build pixel-perfect, accessible products for the web</p>
 
-        <nav ref={refNavigation}>
-          <Ul>
-            <Li>
-              <Anchor href="#about" className="active">
-                <Line></Line>
-                About
-              </Anchor>
-            </Li>
+            <nav ref={refNavigation}>
+              <Ul>
+                <Li>
+                  <Anchor href="#about" className="active">
+                    <Line></Line>
+                    About
+                  </Anchor>
+                </Li>
 
-            <Li>
-              <Anchor href="#major-projects">
-                <Line></Line>
-                Major Projects
-              </Anchor>
-            </Li>
+                <Li>
+                  <Anchor href="#major-projects">
+                    <Line></Line>
+                    Major Projects
+                  </Anchor>
+                </Li>
 
-            <Li>
-              <Anchor href="#all-projects">
-                <Line></Line>
-                All projects
-              </Anchor>
-            </Li>
+                <Li>
+                  <Anchor href="#all-projects">
+                    <Line></Line>
+                    All projects
+                  </Anchor>
+                </Li>
 
-            <Li>
-              <Anchor href="#contact">
-                <Line></Line>
-                Contact
-              </Anchor>
-            </Li>
-          </Ul>
-        </nav>
-      </div>
+                <Li>
+                  <Anchor href="#contact">
+                    <Line></Line>
+                    Contact
+                  </Anchor>
+                </Li>
+              </Ul>
+            </nav>
+          </div>
 
-      <SocialMedia>
-        <li>
-          <a href="https://github.com/PabloPicas0" target="_blank">
-            <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
-          </a>
-        </li>
+          <SocialMedia>
+            <li>
+              <a href="https://github.com/PabloPicas0" target="_blank">
+                <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
 
-        <li>
-          <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
-            <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
-          </a>
-        </li>
+            <li>
+              <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
+                <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
 
-        <li>
-          <a href="https://www.linkedin.com/" target="_blank">
-            <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
-          </a>
-        </li>
-      </SocialMedia>
+            <li>
+              <a href="https://www.linkedin.com/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
+          </SocialMedia>
+        </>
+      ) : (
+        <>
+          <span>Paweł Feliksiak</span>
+          <FontAwesomeIcon icon={faBars} />
+        </>
+      )}
     </StyledHeader>
   );
 };
