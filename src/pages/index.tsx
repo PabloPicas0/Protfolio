@@ -57,7 +57,7 @@ const Div = styled.div`
   }
 `;
 
-// TODO: make mobile version of site
+// TODO: add functionality to hamburger menu
 // TODO: figure out how to send emails from site
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
