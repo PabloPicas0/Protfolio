@@ -1,13 +1,12 @@
 import React from "react";
 
-
 import styled from "@emotion/styled";
 
 import useWindowWidth from "../Hooks/useWindowDimensions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import HeroMobile from "./HeroMoblie";
 
 const StyledHeader = styled.header`
   width: 50%;
@@ -40,6 +39,10 @@ const SocialMedia = styled.ul`
   display: flex;
   gap: 20px;
   list-style: none;
+
+  @media (max-width: 1065px) {
+    padding: 0;
+  }
 `;
 
 const Ul = styled.ul`
@@ -147,10 +150,59 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
           </SocialMedia>
         </>
       ) : (
-        <>
-          <span>Paweł Feliksiak</span>
-          <FontAwesomeIcon icon={faBars} />
-        </>
+        <HeroMobile>
+          <nav>
+            <Ul>
+              <Li>
+                <Anchor href="#about" className="active">
+                  <Line></Line>
+                  About
+                </Anchor>
+              </Li>
+
+              <Li>
+                <Anchor href="#major-projects">
+                  <Line></Line>
+                  Major Projects
+                </Anchor>
+              </Li>
+
+              <Li>
+                <Anchor href="#all-projects">
+                  <Line></Line>
+                  All projects
+                </Anchor>
+              </Li>
+
+              <Li>
+                <Anchor href="#contact">
+                  <Line></Line>
+                  Contact
+                </Anchor>
+              </Li>
+            </Ul>
+          </nav>
+
+          <SocialMedia>
+            <li>
+              <a href="https://github.com/PabloPicas0" target="_blank">
+                <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
+                <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
+              </a>
+            </li>
+          </SocialMedia>
+        </HeroMobile>
       )}
     </StyledHeader>
   );
