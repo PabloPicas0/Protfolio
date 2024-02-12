@@ -23,6 +23,7 @@ const HeroMobile = (props: { children: ReactNode }) => {
           display: isClicked ? "flex" : "none",
           flexDirection: "column",
           justifyContent: "center",
+          gap: "6rem",
           alignItems: "center",
           backgroundColor: "#663399",
         }}>
