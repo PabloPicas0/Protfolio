@@ -20,7 +20,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  margin-bottom: 0.75rem;
+  margin: 0 auto 0.75rem auto;
   max-width: fit-content;
 `;
 
