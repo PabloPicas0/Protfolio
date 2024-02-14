@@ -20,8 +20,12 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  margin: 0 auto 0.75rem auto;
+  margin-bottom: 0.75rem;
   max-width: fit-content;
+
+  @media (max-width: 1065px) {
+    margin: 0 auto 0.75rem auto;
+  }
 `;
 
 const Anchor = styled.a`
