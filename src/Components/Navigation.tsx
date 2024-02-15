@@ -17,6 +17,10 @@ const Ul = styled.ul`
       color: rgb(215 223 239);
     }
   }
+
+  @media (max-width: 1065px) {
+    color: rgb(215 223 239);
+  }
 `;
 
 const Li = styled.li`
