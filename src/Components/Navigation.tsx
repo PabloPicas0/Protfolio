@@ -28,7 +28,7 @@ const Li = styled.li`
   max-width: fit-content;
 
   @media (max-width: 1065px) {
-    margin: 0 auto 0.75rem auto;
+    margin: 0 auto 1.5rem auto;
   }
 `;
 
