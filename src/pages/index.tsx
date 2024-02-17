@@ -5,7 +5,6 @@ import { ImageDataLike } from "gatsby-plugin-image";
 
 import styled from "@emotion/styled";
 
-import Particles from "@tsparticles/react";
 import { ISourceOptions } from "@tsparticles/engine/types/export-types";
 
 import Hero from "../Components/Hero";
@@ -15,6 +14,8 @@ import useParticlesEngine from "../Hooks/useParticlesEngine";
 import About from "../Components/About";
 import ProjectsDetails from "../Components/ProjectsDetails";
 import Contact from "../Components/Contact";
+import useWindowWidth from "../Hooks/useWindowDimensions";
+import Particle from "../Components/Particle";
 
 export type IndexPageData = {
   allMdx: {
@@ -64,6 +65,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
   const { isParticlesLoaded } = useParticlesEngine();
+  const windowWidth = useWindowWidth();
 
   const refSections = useRef<HTMLElement[]>([]);
   const refNavigation = useRef<HTMLAnchorElement | null>(null);
@@ -140,11 +142,9 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
     []
   );
 
-  const Particle = useMemo(() => <Particles id="particles" options={options} />, []);
-
   return (
     <Main>
-      {isParticlesLoaded ? Particle : null}
+      {isParticlesLoaded && windowWidth > 1065 ? <Particle id="particles" options={options} /> : null}
       <Hero refNavigation={refNavigation} />
 
       <Div>
