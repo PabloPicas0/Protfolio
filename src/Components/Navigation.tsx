@@ -39,6 +39,7 @@ const Anchor = styled.a`
   color: inherit;
   text-decoration: none;
   letter-spacing: 0.05rem;
+  font-size: 1.3rem;
 `;
 
 const Line = styled.span`
