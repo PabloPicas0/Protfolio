@@ -14,7 +14,7 @@ const HamburgerMenu = styled.button`
 const Bar = styled.div<BarProps>`
   width: 24px;
   height: 2px;
-  background-color: ${(props) => (props.isClicked ? "" : "whitesmoke")}; whitesmoke;
+  background-color: ${(props) => (props.isClicked ? "" : "whitesmoke")};
   position: relative;
 
   &:before {
@@ -42,6 +42,20 @@ const Bar = styled.div<BarProps>`
   }
 `;
 
+const Parent = styled.div<BarProps>`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: ${(props) => (props.isClicked ? "flex" : "none")};
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+  align-items: center;
+  background-color: #663399;
+`;
+
 const HeroMobile = (props: { children: ReactNode }) => {
   const { children } = props;
 
@@ -57,22 +71,7 @@ const HeroMobile = (props: { children: ReactNode }) => {
         <Bar isClicked={isClicked}></Bar>
       </HamburgerMenu>
 
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          display: isClicked ? "flex" : "none",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "6rem",
-          alignItems: "center",
-          backgroundColor: "#663399",
-        }}>
-        {children}
-      </div>
+      <Parent isClicked={isClicked}>{children}</Parent>
     </>
   );
 };
