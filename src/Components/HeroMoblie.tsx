@@ -52,7 +52,6 @@ const HeroMobile = (props: { children: ReactNode }) => {
         onClick={() => setIsClicked((prev) => !prev)}>
         <Bar isClicked={isClicked}></Bar>
       </HamburgerMenu>
-      {/* <FontAwesomeIcon icon={faBars} onClick={() => setIsClicked((prev) => !prev)} style={{ zIndex: 1337 }} /> */}
 
       <div
         style={{
