@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
 import React, { ReactNode, useState } from "react";
 
+type BarProps = {
+  isClicked: boolean;
+};
+
 const HamburgerMenu = styled.button`
   z-index: 1337;
   background-color: transparent;
   border: none;
 `;
 
-const Bar = styled.div`
+const Bar = styled.div<BarProps>`
   width: 24px;
   height: 2px;
-  background-color:${(props) => (props.isClicked ? "" : "whitesmoke")}; whitesmoke;
+  background-color: ${(props) => (props.isClicked ? "" : "whitesmoke")}; whitesmoke;
   position: relative;
 
   &:before {
