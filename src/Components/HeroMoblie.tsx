@@ -1,7 +1,42 @@
+import styled from "@emotion/styled";
 import React, { ReactNode, useState } from "react";
 
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const HamburgerMenu = styled.button`
+  z-index: 1337;
+  background-color: transparent;
+  border: none;
+`;
+
+const Bar = styled.div`
+  width: 24px;
+  height: 2px;
+  background-color:${(props) => (props.isClicked ? "" : "whitesmoke")}; whitesmoke;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    top: ${(props) => (props.isClicked ? "0px" : "-7px")};
+    left: 0;
+    background-color: whitesmoke;
+    transform: ${(props) => (props.isClicked ? "rotate(45deg)" : "rotate(0deg)")};
+    transition: all 250ms ease;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    top: ${(props) => (props.isClicked ? "0px" : "7px")};
+    left: 0;
+    background-color: whitesmoke;
+    transform: ${(props) => (props.isClicked ? "rotate(-45deg)" : "rotate(0deg)")};
+    transition: all 250ms ease;
+  }
+`;
 
 const HeroMobile = (props: { children: ReactNode }) => {
   const { children } = props;
@@ -11,7 +46,13 @@ const HeroMobile = (props: { children: ReactNode }) => {
   return (
     <>
       <span>Paweł Feliksiak</span>
-      <FontAwesomeIcon icon={faBars} onClick={() => setIsClicked((prev) => !prev)} style={{ zIndex: 1337 }} />
+      <HamburgerMenu
+        type="button"
+        aria-label={isClicked ? "close menu" : "hamburger menu"}
+        onClick={() => setIsClicked((prev) => !prev)}>
+        <Bar isClicked={isClicked}></Bar>
+      </HamburgerMenu>
+      {/* <FontAwesomeIcon icon={faBars} onClick={() => setIsClicked((prev) => !prev)} style={{ zIndex: 1337 }} /> */}
 
       <div
         style={{
