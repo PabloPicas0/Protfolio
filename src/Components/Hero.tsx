@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HeroMobile from "./HeroMoblie";
 import Navigation from "./Navigation";
+import getKey from "../utils/key";
 
 const StyledHeader = styled.header`
   width: 50%;
@@ -38,6 +39,12 @@ const SocialMedia = styled.ul`
   }
 `;
 
+const mediaIcons = [
+  { icon: faGithub, href: "https://github.com/PabloPicas0" },
+  { icon: faFreeCodeCamp, href: "https://forum.freecodecamp.org/u/pabloo1/summary" },
+  { icon: faLinkedin, href: "https://www.linkedin.com/" },
+];
+
 const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement | null> }) => {
   const { refNavigation } = props;
 
@@ -64,23 +71,17 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
           </div>
 
           <SocialMedia>
-            <li>
-              <a href="https://github.com/PabloPicas0" target="_blank">
-                <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
+            {mediaIcons.map((mediaIcon) => {
+              const { href, icon } = mediaIcon;
 
-            <li>
-              <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
-                <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/" target="_blank">
-                <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
+              return (
+                <li key={getKey()}>
+                  <a href={href} target="_blank">
+                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} className="icon" />
+                  </a>
+                </li>
+              );
+            })}
           </SocialMedia>
         </>
       ) : (
@@ -90,23 +91,17 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
           </nav>
 
           <SocialMedia>
-            <li>
-              <a href="https://github.com/PabloPicas0" target="_blank">
-                <FontAwesomeIcon icon={faGithub} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
+            {mediaIcons.map((mediaIcon) => {
+              const { href, icon } = mediaIcon;
 
-            <li>
-              <a href="https://forum.freecodecamp.org/u/pabloo1/summary" target="_blank">
-                <FontAwesomeIcon icon={faFreeCodeCamp} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/" target="_blank">
-                <FontAwesomeIcon icon={faLinkedin} fontSize={"1.5rem"} className="icon" />
-              </a>
-            </li>
+              return (
+                <li key={getKey()}>
+                  <a href={href} target="_blank">
+                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} className="icon" />
+                  </a>
+                </li>
+              );
+            })}
           </SocialMedia>
         </HeroMobile>
       )}
