@@ -39,7 +39,6 @@ const Anchor = styled.a`
   color: inherit;
   text-decoration: none;
   letter-spacing: 0.05rem;
-  font-size: 1.3rem;
 `;
 
 const Line = styled.span`
@@ -56,14 +55,14 @@ const anchors = [
   { text: "Contact", href: "#contact" },
 ];
 
-const Navigation = (props: { isLineVisible: boolean }) => {
-  const { isLineVisible } = props;
+const Navigation = (props: { isDesktop: boolean }) => {
+  const { isDesktop } = props;
 
   return (
     <Ul>
       <Li>
-        <Anchor href="#about" className="active">
-          <Line style={{ display: isLineVisible ? "block" : "none" }}></Line>
+        <Anchor href="#about" className="active" style={{ fontSize: isDesktop ? "1rem" : "1.3rem" }}>
+          <Line style={{ display: isDesktop ? "block" : "none" }}></Line>
           About
         </Anchor>
       </Li>
@@ -73,8 +72,8 @@ const Navigation = (props: { isLineVisible: boolean }) => {
 
         return (
           <Li key={getKey()}>
-            <Anchor href={href}>
-              <Line style={{ display: isLineVisible ? "block" : "none" }}></Line>
+            <Anchor href={href} style={{ fontSize: isDesktop ? "1rem" : "1.3rem" }}>
+              <Line style={{ display: isDesktop ? "block" : "none" }}></Line>
               {text}
             </Anchor>
           </Li>
