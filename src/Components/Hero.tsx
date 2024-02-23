@@ -66,7 +66,7 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
             <p>I build pixel-perfect, accessible products for the web</p>
 
             <nav ref={refNavigation}>
-              <Navigation isLineVisible={true} />
+              <Navigation isDesktop={true} />
             </nav>
           </div>
 
@@ -87,7 +87,7 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
       ) : (
         <HeroMobile>
           <nav>
-            <Navigation isLineVisible={false} />
+            <Navigation isDesktop={false} />
           </nav>
 
           <SocialMedia>
