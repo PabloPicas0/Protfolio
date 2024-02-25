@@ -11,12 +11,15 @@ import getKey from "../utils/key";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useWindowWidth from "../Hooks/useWindowDimensions";
 
 const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
 
+  const windowWidth = useWindowWidth();
+
   return (
-    <div style={{ maxWidth: "1024px", margin: "0 auto" }}>
+    <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0px 5rem" }}>
       <header style={{ marginTop: "8rem" }}>
         <Link to="/" className="projects-archive">
           <FontAwesomeIcon
@@ -40,10 +43,10 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             backgroundColor: "rgba(15,23,42,.75)",
           }}>
           <tr>
-            <th>Date</th>
-            <th>Project</th>
-            <th>Build with</th>
-            <th>Live</th>
+            <th align={windowWidth < 1024 ? "left" : "center"}>Date</th>
+            <th align={windowWidth < 1024 ? "left" : "center"}>Project</th>
+            <th style={{ display: windowWidth < 1024 ? "none" : "" }}>Build with</th>
+            <th align={windowWidth < 1024 ? "left" : "center"}>Live</th>
           </tr>
         </thead>
 
@@ -53,14 +56,17 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             const { id } = node;
 
             return (
-              <tr key={id} style={{ textAlign: "center", color: "rgba(226, 232, 240, 0.7)" }}>
+              <tr
+                key={id}
+                style={{
+                  textAlign: windowWidth < 1024 ? "start" : "center",
+                  color: "rgba(226, 232, 240, 0.7)",
+                }}>
                 <td>{date}</td>
 
-                <td align="center" style={{ color: "rgb(226, 232, 240)" }}>
-                  {title.toPascalCase()}
-                </td>
+                <td style={{ color: "rgb(226, 232, 240)" }}>{title.toPascalCase()}</td>
 
-                <td>
+                <td style={{ display: windowWidth < 1024 ? "none" : "" }}>
                   <ul
                     style={{
                       listStyleType: "none",
@@ -147,7 +153,7 @@ export const Head: HeadFC = () => {
         }
 
         tr {
-          border-bottom: 1px solid white;
+          border-bottom: 1px solid rgba(203, 213, 225, .1);
         }
 
         th,
