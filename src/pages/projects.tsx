@@ -19,7 +19,8 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const windowWidth = useWindowWidth();
 
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0px 5rem" }}>
+    <div
+      style={{ maxWidth: "1280px", margin: "0 auto", padding: windowWidth > 625 ? "0px 5rem" : "0px 1rem" }}>
       <header style={{ marginTop: "8rem" }}>
         <Link to="/" className="projects-archive">
           <FontAwesomeIcon
@@ -46,7 +47,11 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             <th align={windowWidth < 1024 ? "left" : "center"}>Date</th>
             <th align={windowWidth < 1024 ? "left" : "center"}>Project</th>
             <th style={{ display: windowWidth < 1024 ? "none" : "" }}>Build with</th>
-            <th align={windowWidth < 1024 ? "left" : "center"}>Live</th>
+            <th
+              style={{ display: windowWidth <= 625 ? "none" : "" }}
+              align={windowWidth < 1024 ? "left" : "center"}>
+              Live
+            </th>
           </tr>
         </thead>
 
@@ -62,9 +67,21 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                   textAlign: windowWidth < 1024 ? "start" : "center",
                   color: "rgba(226, 232, 240, 0.7)",
                 }}>
-                <td>{date}</td>
+                <td>{windowWidth > 625 ? date : date.split("-")[2]}</td>
 
-                <td style={{ color: "rgb(226, 232, 240)" }}>{title.toPascalCase()}</td>
+                <td style={{ color: "rgb(226, 232, 240)" }}>
+                  {windowWidth > 625 ? (
+                    title.toPascalCase()
+                  ) : (
+                    <a href={homepageUrl} target="_blank">
+                      {title.toPascalCase()}
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        style={{ transform: "rotate(-40deg)", fontSize: "0.8rem", marginLeft: "5px" }}
+                      />
+                    </a>
+                  )}
+                </td>
 
                 <td style={{ display: windowWidth < 1024 ? "none" : "" }}>
                   <ul
@@ -92,7 +109,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                   </ul>
                 </td>
 
-                <td>
+                <td style={{ display: windowWidth <= 625 ? "none" : "" }}>
                   <a target="_blank" href={homepageUrl}>
                     Live
                     <FontAwesomeIcon
