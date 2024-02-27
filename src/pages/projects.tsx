@@ -77,7 +77,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                       {title.toPascalCase()}
                       <FontAwesomeIcon
                         icon={faArrowRight}
-                        style={{ transform: "rotate(-40deg)", fontSize: "0.8rem", marginLeft: "5px" }}
+                        style={{ transform: "rotate(-40deg)", fontSize: "0.8rem", margin: "0 0 4px 4px" }}
                       />
                     </a>
                   )}
