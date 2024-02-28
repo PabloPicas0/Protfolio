@@ -3,6 +3,8 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Paweł Feliksiak`,
+    description: `Personal portfolio, with work examples`,
+    meta: "Portfolio, Gatsby, HTML, CSS, JavaScript",
     siteUrl: `https://www.yourdomain.tld`,
   },
   graphqlTypegen: true,
