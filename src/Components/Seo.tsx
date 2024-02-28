@@ -1,15 +1,17 @@
 import { useStaticQuery, graphql } from "gatsby";
-import React from "react";
+import React, { ReactNode } from "react";
 
 type SeoProps = {
   title: string;
-  children?: string | JSX.Element | JSX.Element[] | (() => JSX.Element);
+  children?: ReactNode;
 };
 
 type Query = {
   site: {
     siteMetadata: {
       title: string;
+      description: string;
+      meta: string;
     };
   };
 };
@@ -22,6 +24,7 @@ const Seo = (props: SeoProps) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
@@ -30,6 +33,8 @@ const Seo = (props: SeoProps) => {
   return (
     <>
       <html lang="en" />
+      <meta name="description" content={data.site.siteMetadata.description} />
+      <meta name="keywords" content={data.site.siteMetadata.meta} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
