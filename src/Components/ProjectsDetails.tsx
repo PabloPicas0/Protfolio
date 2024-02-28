@@ -98,7 +98,13 @@ const ProjectsDetails = (props: {
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <Project>
             {windowWidth > 445 ? (
-              <img src={animeExplorerImage} width={120} height={70} className="project-image" />
+              <img
+                src={animeExplorerImage}
+                alt="Image of Anime Explorer project"
+                width={120}
+                height={70}
+                className="project-image"
+              />
             ) : null}
 
             <div style={{ flex: "1" }}>
@@ -106,7 +112,13 @@ const ProjectsDetails = (props: {
 
               {windowWidth < 445 ? (
                 <div style={{ margin: "0 auto", width: "fit-content" }}>
-                  <img src={animeExplorerImage} width={120} height={70} className="project-image" />
+                  <img
+                    src={animeExplorerImage}
+                    alt="Image of Anime Explorer project"
+                    width={120}
+                    height={70}
+                    className="project-image"
+                  />
                 </div>
               ) : null}
 
@@ -147,7 +159,13 @@ const ProjectsDetails = (props: {
 
           <Project>
             {windowWidth > 445 ? (
-              <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
+              <img
+                src={aroundTheWorldImage}
+                alt="Image of Around the world project"
+                width={120}
+                height={70}
+                className="project-image"
+              />
             ) : null}
 
             <div style={{ flex: "1" }}>
@@ -155,7 +173,13 @@ const ProjectsDetails = (props: {
 
               {windowWidth < 445 ? (
                 <div style={{ margin: "0 auto", width: "fit-content" }}>
-                  <img src={aroundTheWorldImage} width={120} height={70} className="project-image" />
+                  <img
+                    src={aroundTheWorldImage}
+                    alt="Image of Around the world project"
+                    width={120}
+                    height={70}
+                    className="project-image"
+                  />
                 </div>
               ) : null}
 
