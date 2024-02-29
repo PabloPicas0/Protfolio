@@ -48,14 +48,14 @@ const Project = styled.li`
   }
 `;
 
-const ProjectLinksWrapper = styled.div`
+export const AnchorsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   margin-top: 1.4rem;
 `;
 
-const ProjectLink = styled.a`
+export const Anchor = styled.a`
   border: 1px solid;
   padding: 0.4rem;
   text-decoration: none;
@@ -145,15 +145,15 @@ const ProjectsDetails = (props: {
                 })}
               </div>
 
-              <ProjectLinksWrapper>
-                <ProjectLink target="_blank" href="https://github.com/PabloPicas0/Anime-Xplorer-App">
+              <AnchorsWrapper>
+                <Anchor target="_blank" href="https://github.com/PabloPicas0/Anime-Xplorer-App">
                   Source Code
-                </ProjectLink>
+                </Anchor>
 
-                <ProjectLink target="_blank" href="https://pablopicas0.github.io/Anime-Xplorer-App/">
+                <Anchor target="_blank" href="https://pablopicas0.github.io/Anime-Xplorer-App/">
                   Project Live
-                </ProjectLink>
-              </ProjectLinksWrapper>
+                </Anchor>
+              </AnchorsWrapper>
             </div>
           </Project>
 
@@ -205,15 +205,15 @@ const ProjectsDetails = (props: {
                 })}
               </div>
 
-              <ProjectLinksWrapper>
-                <ProjectLink target="_blank" href="https://github.com/PabloPicas0/Around-The-World-App">
+              <AnchorsWrapper>
+                <Anchor target="_blank" href="https://github.com/PabloPicas0/Around-The-World-App">
                   Source Code
-                </ProjectLink>
+                </Anchor>
 
-                <ProjectLink target="_blank" href="https://pablopicas0.github.io/Around-The-World-App/">
+                <Anchor target="_blank" href="https://pablopicas0.github.io/Around-The-World-App/">
                   Project Live
-                </ProjectLink>
-              </ProjectLinksWrapper>
+                </Anchor>
+              </AnchorsWrapper>
             </div>
           </Project>
         </ul>
@@ -262,15 +262,15 @@ const ProjectsDetails = (props: {
                     })}
                   </div>
 
-                  <ProjectLinksWrapper>
-                    <ProjectLink target="_blank" href={repoUrl}>
+                  <AnchorsWrapper>
+                    <Anchor target="_blank" href={repoUrl}>
                       Source Code
-                    </ProjectLink>
+                    </Anchor>
 
-                    <ProjectLink target="_blank" href={homepageUrl}>
+                    <Anchor target="_blank" href={homepageUrl}>
                       Project Live
-                    </ProjectLink>
-                  </ProjectLinksWrapper>
+                    </Anchor>
+                  </AnchorsWrapper>
                 </div>
               </Project>
             );
