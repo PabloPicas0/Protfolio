@@ -49,6 +49,7 @@ const Main = styled.main`
 `;
 
 const Div = styled.div`
+  display: grid;
   width: 50%;
   padding: 96px 0px;
 
@@ -57,9 +58,6 @@ const Div = styled.div`
     padding: 96px 10px;
   }
 `;
-
-// TODO: add functionality to hamburger menu
-// TODO: figure out how to send emails from site
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
@@ -200,7 +198,7 @@ export const Head: HeadFC = () => {
         }
 
         section {
-          margin-bottom: 9rem
+          margin-bottom: 9rem;
         }
 
         .icon {
@@ -268,6 +266,10 @@ export const Head: HeadFC = () => {
           border: 2px solid;
           border-radius: 0.25rem;
           border-color: rgba(226, 232, 240, 0.1);
+        }
+
+        #contact {
+          margin: 0rem 0rem 17rem 0rem
         }
         `}
       </style>
