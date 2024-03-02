@@ -16,6 +16,20 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-fontawesome-css",
     {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `My personal portfolio`,
+        short_name: `Portfolio`,
+        description: `Personal portfolio, with work examples`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#fff`,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
