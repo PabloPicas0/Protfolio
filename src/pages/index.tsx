@@ -210,12 +210,14 @@ export const Head: HeadFC = () => {
         }
 
         .about-section {
-          margin-bottom: 12rem !important
+          margin-bottom: 12rem !important;
+          scroll-margin-top: 8rem;
         }
          
         .about-content { 
           line-height: 1.625rem;
           font-size: 18px;
+          text-align: justify;
         }
 
         .project-title {
@@ -250,7 +252,8 @@ export const Head: HeadFC = () => {
         }
 
         .projects-archive-icon {
-          transition: transform 200ms ease;  
+          transition: transform 200ms ease;
+          margin-left: 5px;
         }
 
         .active {

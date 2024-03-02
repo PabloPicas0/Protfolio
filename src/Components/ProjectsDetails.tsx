@@ -67,6 +67,22 @@ export const Anchor = styled.a`
   }
 `;
 
+const H2 = styled.h2`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+const P = styled.p`
+  text-align: center;
+  margin-bottom: 3.5rem;
+`;
+
+const Projects = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
 const mernIcons = [
   { src: mongodb, alt: "MongoDB icon" },
   { src: express, alt: "Express icon" },
@@ -90,12 +106,10 @@ const ProjectsDetails = (props: {
   return (
     <>
       <section id="major-projects" ref={(e) => (e ? (refSections.current[1] = e) : e)}>
-        <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>Major Projects</h2>
-        <p style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-          Projects that I spent the most time working on and the ones that I constantly keep updating.
-        </p>
+        <H2>Major Projects</H2>
+        <P>Projects that I spent the most time working on and the ones that I constantly keep updating.</P>
 
-        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        <Projects>
           <Project>
             {windowWidth > 445 ? (
               <img
@@ -216,13 +230,13 @@ const ProjectsDetails = (props: {
               </AnchorsWrapper>
             </div>
           </Project>
-        </ul>
+        </Projects>
       </section>
 
       <section id="all-projects" ref={(e) => (e ? (refSections.current[2] = e) : e)}>
-        <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>All Projects</h2>
+        <H2>All Projects</H2>
 
-        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        <Projects>
           {data.allMdx.nodes.map((node) => {
             const { id } = node;
             const { banner, description, homepageUrl, repoUrl, techs, title } = node.frontmatter;
@@ -275,14 +289,13 @@ const ProjectsDetails = (props: {
               </Project>
             );
           })}
-        </ul>
+        </Projects>
 
         <Link to="/projects" className="projects-archive">
           View full projects archive
           <FontAwesomeIcon
             icon={faArrowRight}
             fontSize={14}
-            style={{ marginLeft: "5px" }}
             className="projects-archive-icon"
           />
         </Link>

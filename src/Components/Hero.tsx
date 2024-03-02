@@ -39,6 +39,11 @@ const SocialMedia = styled.ul`
   }
 `;
 
+const H2 = styled.h2`
+  color: #663399;
+  text-transform: uppercase;
+`;
+
 const mediaIcons = [
   { icon: faGithub, href: "https://github.com/PabloPicas0" },
   { icon: faFreeCodeCamp, href: "https://forum.freecodecamp.org/u/pabloo1/summary" },
@@ -56,13 +61,7 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
         <>
           <div>
             <h1>Paweł Feliksiak</h1>
-            <h2
-              style={{
-                color: "#663399",
-                textTransform: "uppercase",
-              }}>
-              front-end developer
-            </h2>
+            <H2>front-end developer</H2>
             <p>I build pixel-perfect, accessible products for the web</p>
 
             <nav ref={refNavigation}>

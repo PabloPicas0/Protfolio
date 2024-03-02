@@ -32,17 +32,18 @@ const Li = styled.li`
   }
 `;
 
-const Anchor = styled.a`
+const Anchor = styled.a<{ isDesktop: boolean }>`
   display: flex;
   align-items: center;
   gap: 1rem;
   color: inherit;
   text-decoration: none;
   letter-spacing: 0.05rem;
+  font-size: ${(props) => (props.isDesktop ? "1rem" : "1.3rem")};
 `;
 
-const Line = styled.span`
-  display: block;
+const Line = styled.span<{ isDesktop: boolean }>`
+  display: ${(props) => (props.isDesktop ? "block" : "none")};
   width: 2rem;
   height: 1px;
   background-color: rgb(93, 111, 139);
@@ -61,8 +62,8 @@ const Navigation = (props: { isDesktop: boolean }) => {
   return (
     <Ul>
       <Li>
-        <Anchor href="#about" className="active" style={{ fontSize: isDesktop ? "1rem" : "1.3rem" }}>
-          <Line style={{ display: isDesktop ? "block" : "none" }}></Line>
+        <Anchor href="#about" className="active" isDesktop={isDesktop}>
+          <Line isDesktop={isDesktop}></Line>
           About
         </Anchor>
       </Li>
@@ -72,8 +73,8 @@ const Navigation = (props: { isDesktop: boolean }) => {
 
         return (
           <Li key={getKey()}>
-            <Anchor href={href} style={{ fontSize: isDesktop ? "1rem" : "1.3rem" }}>
-              <Line style={{ display: isDesktop ? "block" : "none" }}></Line>
+            <Anchor href={href} isDesktop={isDesktop}>
+              <Line isDesktop={isDesktop}></Line>
               {text}
             </Anchor>
           </Li>
