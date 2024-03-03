@@ -18,6 +18,10 @@ const H2 = styled.h2`
 
 const P = styled.p`
   margin: 2rem 0rem;
+
+  @media (max-width: 1065px) {
+    text-align: center;
+  }
 `;
 
 const Contact = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) => {
