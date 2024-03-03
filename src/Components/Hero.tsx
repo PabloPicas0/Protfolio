@@ -96,7 +96,7 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
               return (
                 <li key={getKey()}>
                   <a href={href} target="_blank">
-                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} className="icon" />
+                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} color="rgb(226, 226, 240)" />
                   </a>
                 </li>
               );
