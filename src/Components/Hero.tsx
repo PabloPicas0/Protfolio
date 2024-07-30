@@ -5,50 +5,34 @@ import styled from "@emotion/styled";
 import useWindowWidth from "../Hooks/useWindowDimensions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFreeCodeCamp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import HeroMobile from "./HeroMoblie";
-import Navigation from "./Navigation";
-import getKey from "../utils/key";
+import { faFileText } from "@fortawesome/free-regular-svg-icons";
 
-const StyledHeader = styled.header`
-  width: 50%;
+import Socials from "./Socials";
+
+const HeroContainer = styled.header`
   max-height: 100vh;
   padding: 6rem 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
   position: sticky;
   top: 0;
-
-  @media (max-width: 1065px) {
-    flex-direction: row;
-    width: initial;
-    padding: 0.8rem 2rem;
-    background-color: #663399;
-    z-index: 1337;
-  }
 `;
 
-const SocialMedia = styled.ul`
-  display: flex;
-  gap: 20px;
-  list-style: none;
-
-  @media (max-width: 1065px) {
-    padding: 0;
-  }
-`;
-
-const H2 = styled.h2`
-  color: #663399;
+const P = styled.p`
   text-transform: uppercase;
+  margin: 0;
 `;
 
-const mediaIcons = [
-  { icon: faGithub, href: "https://github.com/PabloPicas0" },
-  { icon: faFreeCodeCamp, href: "https://forum.freecodecamp.org/u/pabloo1/summary" },
-  { icon: faLinkedin, href: "https://www.linkedin.com/" },
-];
+const Donwload = styled.button`
+  background-image: linear-gradient(180deg, #566ff8 0%, #394fdc 100%);
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  color: inherit;
+  cursor: pointer;
+  padding: 10px 16px;
+`;
 
 const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement | null> }) => {
   const { refNavigation } = props;
@@ -56,55 +40,19 @@ const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement |
   const windowWidth = useWindowWidth();
 
   return (
-    <StyledHeader>
-      {windowWidth > 1065 ? (
-        <>
-          <div>
-            <h1>Paweł Feliksiak</h1>
-            <H2>front-end developer</H2>
-            <p>I build pixel-perfect, accessible products for the web</p>
+    windowWidth > 1065 && (
+      <HeroContainer>
+        <h1 style={{ margin: "0.5rem 0" }}>Paweł Feliksiak</h1>
+        <P>front-end developer</P>
 
-            <nav ref={refNavigation}>
-              <Navigation isDesktop={true} />
-            </nav>
-          </div>
+        <Socials />
 
-          <SocialMedia>
-            {mediaIcons.map((mediaIcon) => {
-              const { href, icon } = mediaIcon;
-
-              return (
-                <li key={getKey()}>
-                  <a href={href} target="_blank">
-                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} className="icon" />
-                  </a>
-                </li>
-              );
-            })}
-          </SocialMedia>
-        </>
-      ) : (
-        <HeroMobile>
-          <nav>
-            <Navigation isDesktop={false} />
-          </nav>
-
-          <SocialMedia>
-            {mediaIcons.map((mediaIcon) => {
-              const { href, icon } = mediaIcon;
-
-              return (
-                <li key={getKey()}>
-                  <a href={href} target="_blank">
-                    <FontAwesomeIcon icon={icon} fontSize={"1.5rem"} color="rgb(226, 226, 240)" />
-                  </a>
-                </li>
-              );
-            })}
-          </SocialMedia>
-        </HeroMobile>
-      )}
-    </StyledHeader>
+        <Donwload>
+          <FontAwesomeIcon icon={faFileText} className="resume-icon" />
+          Resume
+        </Donwload>
+      </HeroContainer>
+    )
   );
 };
 

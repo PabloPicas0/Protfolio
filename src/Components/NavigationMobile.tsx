@@ -1,5 +1,9 @@
+import React, { useState } from "react";
+
 import styled from "@emotion/styled";
-import React, { ReactNode, useState } from "react";
+
+import Navigation from "./Navigation";
+import Socials from "./Socials";
 
 type BarProps = {
   isClicked: boolean;
@@ -42,7 +46,7 @@ const Bar = styled.div<BarProps>`
   }
 `;
 
-const Parent = styled.div<BarProps>`
+const Popup = styled.div<BarProps>`
   position: fixed;
   top: 0;
   right: 0;
@@ -56,9 +60,7 @@ const Parent = styled.div<BarProps>`
   background-color: #663399;
 `;
 
-const HeroMobile = (props: { children: ReactNode }) => {
-  const { children } = props;
-
+const NavigationMobile = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -71,9 +73,15 @@ const HeroMobile = (props: { children: ReactNode }) => {
         <Bar isClicked={isClicked}></Bar>
       </HamburgerMenu>
 
-      <Parent isClicked={isClicked}>{children}</Parent>
+      <Popup isClicked={isClicked}>
+        <nav>
+          <Navigation isDesktop={false} />
+        </nav>
+
+        <Socials />
+      </Popup>
     </>
   );
 };
 
-export default HeroMobile;
+export default NavigationMobile;

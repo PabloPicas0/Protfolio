@@ -16,6 +16,8 @@ import ProjectsDetails from "../Components/ProjectsDetails";
 import Contact from "../Components/Contact";
 import useWindowWidth from "../Hooks/useWindowDimensions";
 import Particle from "../Components/Particle";
+import Navigation from "../Components/Navigation";
+import NavigationMobile from "../Components/NavigationMobile";
 
 export type IndexPageData = {
   allMdx: {
@@ -35,10 +37,11 @@ export type IndexPageData = {
 };
 
 const Main = styled.main`
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 200px;
+  justify-content: center;
+  gap: 35px;
+  max-width: 1444px;
   margin: 0px auto;
   padding: 0px 96px;
 
@@ -50,12 +53,34 @@ const Main = styled.main`
 
 const Div = styled.div`
   display: grid;
-  width: 50%;
+  grid-column: 2 / span 2;
   padding: 96px 0px;
 
   @media (max-width: 1065px) {
     width: initial;
     padding: 96px 10px;
+  }
+`;
+
+const Nav = styled.nav`
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  justify-self: end;
+  padding-top: calc(96px - 4rem);
+
+  @media (max-width: 1065px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    background-color: #663399;
   }
 `;
 
@@ -66,7 +91,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const windowWidth = useWindowWidth();
 
   const refSections = useRef<HTMLElement[]>([]);
-  const refNavigation = useRef<HTMLAnchorElement | null>(null);
+  const refNavigation = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -141,16 +166,21 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   );
 
   return (
-    <Main>
+    <>
       {isParticlesLoaded && windowWidth > 1065 ? <Particle id="particles" options={options} /> : null}
-      <Hero refNavigation={refNavigation} />
 
-      <Div>
-        <About refSections={refSections} />
-        <ProjectsDetails data={data} refSections={refSections} />
-        <Contact refSections={refSections} />
-      </Div>
-    </Main>
+      <Main>
+        <Hero refNavigation={refNavigation} />
+
+        <Div>
+          <About refSections={refSections} />
+          <ProjectsDetails data={data} refSections={refSections} />
+          <Contact refSections={refSections} />
+        </Div>
+
+        <Nav>{windowWidth > 1065 ? <Navigation isDesktop={true} /> : <NavigationMobile />}</Nav>
+      </Main>
+    </>
   );
 };
 
@@ -273,6 +303,10 @@ export const Head: HeadFC = () => {
 
         #contact {
           margin: 0rem 0rem 17rem 0rem
+        }
+
+        .resume-icon {
+          margin-right: 10px
         }
         `}
       </style>

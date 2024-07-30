@@ -1,31 +1,26 @@
-import styled from "@emotion/styled";
 import React from "react";
-import getKey from "../utils/key";
+import styled from "@emotion/styled";
 
-const Ul = styled.ul`
+const List = styled.ul`
   padding: 0px;
   margin: 4rem 0rem 0rem 0rem;
   list-style: none;
   color: rgb(93, 111, 139);
-
-  li:hover {
-    span {
-      background-color: rgb(215 223 239);
-      width: 4rem;
-    }
-    a {
-      color: rgb(215 223 239);
-    }
-  }
 
   @media (max-width: 1065px) {
     color: rgb(215 223 239);
   }
 `;
 
-const Li = styled.li`
+const Item = styled.li`
   margin-bottom: 0.75rem;
   max-width: fit-content;
+
+  &:hover {
+    a {
+      color: rgb(215 223 239);
+    }
+  }
 
   @media (max-width: 1065px) {
     margin: 0 auto 1.5rem auto;
@@ -42,45 +37,36 @@ const Anchor = styled.a<{ isDesktop: boolean }>`
   font-size: ${(props) => (props.isDesktop ? "1rem" : "1.3rem")};
 `;
 
-const Line = styled.span<{ isDesktop: boolean }>`
-  display: ${(props) => (props.isDesktop ? "block" : "none")};
-  width: 2rem;
-  height: 1px;
-  background-color: rgb(93, 111, 139);
-  transition: all 100ms ease;
-`;
-
 const anchors = [
   { text: "Major Projects", href: "#major-projects" },
   { text: "All projects", href: "#all-projects" },
   { text: "Contact", href: "#contact" },
+  {text: "Resume", href: "#resume"} // TODO: Change resume href
 ];
 
 const Navigation = (props: { isDesktop: boolean }) => {
   const { isDesktop } = props;
 
   return (
-    <Ul>
-      <Li>
+    <List>
+      <Item>
         <Anchor href="#about" className="active" isDesktop={isDesktop}>
-          <Line isDesktop={isDesktop}></Line>
           About
         </Anchor>
-      </Li>
+      </Item>
 
       {anchors.map((anchor) => {
         const { text, href } = anchor;
 
         return (
-          <Li key={getKey()}>
+          <Item key={text}>
             <Anchor href={href} isDesktop={isDesktop}>
-              <Line isDesktop={isDesktop}></Line>
               {text}
             </Anchor>
-          </Li>
+          </Item>
         );
       })}
-    </Ul>
+    </List>
   );
 };
 
