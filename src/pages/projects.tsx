@@ -2,7 +2,7 @@ import { type PageProps, type HeadFC, graphql, Link } from "gatsby";
 import React from "react";
 import Seo from "../Components/Seo";
 
-import { IndexPageData } from ".";
+import { IndexPageData } from "../Controllers/IndexPageController";
 
 import "../string.extensions";
 
@@ -11,7 +11,20 @@ import getKey from "../utils/key";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import useWindowWidth from "../Hooks/useWindowDimensions";
+
+import styles from "../Styles/Pages/Projects";
+
+const Container = styles.components.Container;
+const ProjectsHeader = styles.components.ProjectsHeader;
+const H1 = styles.components.H1;
+const TableHead = styles.components.TableHead;
+const TableRow = styles.components.TableRow;
+const ColumnTitle = styles.components.ColumnTitle;
+const ColumnTech = styles.components.techs.ColumnTech;
+const TechsList = styles.components.techs.TechsList;
+const ColumnLive = styles.components.ColumnProjectLive;
 
 const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const { data } = props;
@@ -19,9 +32,8 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
   const windowWidth = useWindowWidth();
 
   return (
-    <div
-      style={{ maxWidth: "1280px", margin: "0 auto", padding: windowWidth > 625 ? "0px 5rem" : "0px 1rem" }}>
-      <header style={{ marginTop: "8rem" }}>
+    <Container windowWidth={windowWidth}>
+      <ProjectsHeader>
         <Link to="/" className="projects-archive">
           <FontAwesomeIcon
             icon={faArrowRight}
@@ -32,17 +44,11 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
           Go Back
         </Link>
 
-        <h1 style={{ marginTop: "10px", fontSize: "2.5em" }}>All Projects</h1>
-      </header>
+        <H1 style={{ marginTop: "10px", fontSize: "2.5em" }}>All Projects</H1>
+      </ProjectsHeader>
 
       <table cellSpacing={20} width={"100%"}>
-        <thead
-          style={{
-            position: "sticky",
-            top: 0,
-            backdropFilter: "blur(5px)",
-            backgroundColor: "rgba(15,23,42,.75)",
-          }}>
+        <TableHead>
           <tr>
             <th align={windowWidth < 1024 ? "left" : "center"}>Date</th>
             <th align={windowWidth < 1024 ? "left" : "center"}>Project</th>
@@ -53,7 +59,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
               Live
             </th>
           </tr>
-        </thead>
+        </TableHead>
 
         <tbody>
           {data.allMdx.nodes.map((node) => {
@@ -61,15 +67,10 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
             const { id } = node;
 
             return (
-              <tr
-                key={id}
-                style={{
-                  textAlign: windowWidth < 1024 ? "start" : "center",
-                  color: "rgba(226, 232, 240, 0.7)",
-                }}>
+              <TableRow key={id} windowWidth={windowWidth}>
                 <td>{windowWidth > 625 ? date : date.split("-")[2]}</td>
 
-                <td style={{ color: "rgb(226, 232, 240)" }}>
+                <ColumnTitle>
                   {windowWidth > 625 ? (
                     title.toPascalCase()
                   ) : (
@@ -81,18 +82,10 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                       />
                     </a>
                   )}
-                </td>
+                </ColumnTitle>
 
-                <td style={{ display: windowWidth < 1024 ? "none" : "" }}>
-                  <ul
-                    style={{
-                      listStyleType: "none",
-                      display: "flex",
-                      gap: "10px",
-                      justifyContent: "center",
-                      margin: 0,
-                      padding: 0,
-                    }}>
+                <ColumnTech windowWidth={windowWidth}>
+                  <TechsList>
                     {techs.map((tech) => {
                       return (
                         <li key={getKey()}>
@@ -106,10 +99,10 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                         </li>
                       );
                     })}
-                  </ul>
-                </td>
+                  </TechsList>
+                </ColumnTech>
 
-                <td style={{ display: windowWidth <= 625 ? "none" : "" }}>
+                <ColumnLive windowWidth={windowWidth}>
                   <a target="_blank" href={homepageUrl}>
                     Live
                     <FontAwesomeIcon
@@ -119,13 +112,13 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                       className="projects-link-icon"
                     />
                   </a>
-                </td>
-              </tr>
+                </ColumnLive>
+              </TableRow>
             );
           })}
         </tbody>
       </table>
-    </div>
+    </Container>
   );
 };
 
@@ -152,71 +145,7 @@ export default Projects;
 export const Head: HeadFC = () => {
   return (
     <Seo title="Paweł Feliksiak">
-      <style>
-        {`
-        * {
-          box-sizing: border-box;
-        }
-
-        body {
-          color: rgb(226, 232, 240);
-          margin: 0px;
-          background-color: rgb(15, 23, 42);
-          font-family: 'Inter', sans-serif;
-        }
-
-        table {
-          border-collapse: collapse;
-        }
-
-        tr {
-          border-bottom: 1px solid rgba(203, 213, 225, .1);
-        }
-
-        th,
-        td {
-          padding: 1rem 1rem 1rem 0px;
-        }
-
-         .projects-archive {
-          text-decoration: none;
-          color: inherit;
-
-          &:hover {
-            text-decoration: underline;
-            text-underline-offset: 8px;
-            
-            .projects-archive-icon {
-              translate: -8px
-            }
-          }
-        }
-
-        .projects-archive-icon {
-          transition: translate 200ms ease;
-          transform: rotate(-180deg) !important;
-        }
-
-        .projects-link-icon {
-          transition: all 200ms ease;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-          text-underline-offset: 5px;
-        }
-
-        a:hover {
-          color: aquamarine;
-          text-decoration: underline;
-
-          .projects-link-icon {
-            transform: translateX(8px);
-          }
-        }
-        `}
-      </style>
+      <style>{styles.head}</style>
     </Seo>
   );
 };
