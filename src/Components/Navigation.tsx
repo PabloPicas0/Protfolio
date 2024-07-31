@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faContactBook, faFileText, faStar, faSuitcase, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 const List = styled.ul`
   padding: 0px;
@@ -13,11 +15,14 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  margin-bottom: 0.75rem;
-  max-width: fit-content;
+  margin-bottom: 1.2rem;
+  text-align: center;
 
   &:hover {
     a {
+      color: rgb(215 223 239);
+    }
+    svg {
       color: rgb(215 223 239);
     }
   }
@@ -28,9 +33,7 @@ const Item = styled.li`
 `;
 
 const Anchor = styled.a<{ isDesktop: boolean }>`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: block;
   color: inherit;
   text-decoration: none;
   letter-spacing: 0.05rem;
@@ -38,10 +41,9 @@ const Anchor = styled.a<{ isDesktop: boolean }>`
 `;
 
 const anchors = [
-  { text: "Major Projects", href: "#major-projects" },
-  { text: "All projects", href: "#all-projects" },
-  { text: "Contact", href: "#contact" },
-  {text: "Resume", href: "#resume"} // TODO: Change resume href
+  { text: "Major Projects", href: "#major-projects", icon: faStar },
+  { text: "All projects", href: "#all-projects", icon: faSuitcase },
+  { text: "Contact", href: "#contact", icon: faContactBook },
 ];
 
 const Navigation = (props: { isDesktop: boolean }) => {
@@ -50,22 +52,33 @@ const Navigation = (props: { isDesktop: boolean }) => {
   return (
     <List>
       <Item>
+        <FontAwesomeIcon icon={faUserAlt} />
         <Anchor href="#about" className="active" isDesktop={isDesktop}>
           About
         </Anchor>
       </Item>
 
       {anchors.map((anchor) => {
-        const { text, href } = anchor;
+        const { text, href, icon } = anchor;
 
         return (
           <Item key={text}>
+            <FontAwesomeIcon icon={icon} />
             <Anchor href={href} isDesktop={isDesktop}>
               {text}
             </Anchor>
           </Item>
         );
       })}
+
+      {!isDesktop && (
+        <Item>
+          <FontAwesomeIcon icon={faFileText} />
+          <Anchor href="#" isDesktop={isDesktop}>
+            Resume
+          </Anchor>
+        </Item>
+      )}
     </List>
   );
 };
