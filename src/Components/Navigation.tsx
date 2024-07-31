@@ -15,6 +15,10 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
+  background-color: rgba(26, 41, 59, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
   margin-bottom: 1.2rem;
   text-align: center;
 
