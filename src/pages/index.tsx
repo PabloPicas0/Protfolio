@@ -18,7 +18,6 @@ import { IndexPageData } from "../Controllers/IndexPageController";
 
 import styles from "../Styles/Pages/Index";
 
-
 const Main = styles.components.Main;
 const Div = styles.components.Div;
 const Nav = styles.components.Nav;
@@ -30,7 +29,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
   const windowWidth = useWindowWidth();
 
   const refSections = useRef<HTMLElement[]>([]);
-  const refNavigation = useRef<HTMLAnchorElement>(null);
+  const refNavigation = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,7 +38,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           const { target, isIntersecting } = entry;
 
           const prevSection = refNavigation.current?.querySelector(".active");
-          const nextSection = refNavigation.current?.querySelector(`a[href='#${target.id}']`);
+          const nextSection = refNavigation.current?.querySelector(`a[href='#${target.id}']`)?.parentElement;
 
           if (isIntersecting) {
             prevSection?.classList.remove("active");
@@ -62,7 +61,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
       {isParticlesLoaded && windowWidth > 1065 ? <Particle id="particles" options={options} /> : null}
 
       <Main>
-        <Hero refNavigation={refNavigation} />
+        <Hero />
 
         <Div>
           <About refSections={refSections} />
@@ -70,7 +69,13 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = (props) => {
           <Contact refSections={refSections} />
         </Div>
 
-        <Nav>{windowWidth > 1065 ? <Navigation isDesktop={true} /> : <NavigationMobile />}</Nav>
+        <Nav>
+          {windowWidth > 1065 ? (
+            <Navigation isDesktop={true} refNavigation={refNavigation} />
+          ) : (
+            <NavigationMobile />
+          )}
+        </Nav>
       </Main>
     </>
   );
