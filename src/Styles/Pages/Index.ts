@@ -152,6 +152,7 @@ const styles = {
           color: inherit;
 
           &:hover {
+            color: aquamarine;
             text-decoration: underline;
             text-underline-offset: 8px;
             
@@ -184,6 +185,10 @@ const styles = {
 
         .resume-icon {
           margin-right: 10px
+        }
+        
+        .nav-icon {
+          margin-bottom: 5px;
         }
         `,
 };

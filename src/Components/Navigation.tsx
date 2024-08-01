@@ -52,15 +52,15 @@ const anchors = [
 
 const Navigation = (props: {
   isDesktop: boolean;
-  refNavigation: React.MutableRefObject<HTMLUListElement | null>;
+  refNavigation?: React.MutableRefObject<HTMLUListElement | null>;
 }) => {
   const { isDesktop, refNavigation } = props;
 
   return (
     <List ref={refNavigation}>
-      <Item className="active">
+      <Item className={isDesktop ? "active" : ""}>
         <Anchor href="#about" isDesktop={isDesktop}>
-          <FontAwesomeIcon icon={faUserAlt} />
+          <FontAwesomeIcon icon={faUserAlt} fontSize={"1.2rem"} className="nav-icon" />
           About
         </Anchor>
       </Item>
@@ -71,7 +71,7 @@ const Navigation = (props: {
         return (
           <Item key={text}>
             <Anchor href={href} isDesktop={isDesktop}>
-              <FontAwesomeIcon icon={icon} />
+              <FontAwesomeIcon icon={icon} fontSize={"1.2rem"} className="nav-icon" />
               {text}
             </Anchor>
           </Item>
@@ -81,7 +81,7 @@ const Navigation = (props: {
       {!isDesktop && (
         <Item>
           <Anchor href="#" isDesktop={isDesktop}>
-            <FontAwesomeIcon icon={faFileText} />
+            <FontAwesomeIcon icon={faFileText} fontSize={"1.2rem"} className="nav-icon" />
             Resume
           </Anchor>
         </Item>
