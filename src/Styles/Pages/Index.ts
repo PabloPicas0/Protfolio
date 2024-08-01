@@ -9,6 +9,7 @@ const styles = {
       max-width: 1444px;
       margin: 0px auto;
       padding: 0px 96px;
+      gap: 35px;
 
       @media (max-width: 1065px) {
         display: block;
