@@ -17,6 +17,7 @@ const HeroContainer = styled.header`
   gap: 10px;
   position: sticky;
   top: 0;
+  justify-self: center;
 `;
 
 const P = styled.p`
@@ -34,9 +35,7 @@ const Donwload = styled.button`
   padding: 10px 16px;
 `;
 
-const Hero = (props: { refNavigation: React.MutableRefObject<HTMLAnchorElement | null> }) => {
-  const { refNavigation } = props;
-
+const Hero = () => {
   const windowWidth = useWindowWidth();
 
   return (
