@@ -29,7 +29,6 @@
     "@tsparticles/slim": "^3.0.3",
     "gatsby": "^5.13.1",
     "gatsby-plugin-emotion": "^8.13.0",
-    "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-image": "^3.13.0",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-mdx": "^5.13.0",
@@ -38,6 +37,10 @@
     "gatsby-transformer-sharp": "^5.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "@mdx-js/react": "^3.0.0",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
