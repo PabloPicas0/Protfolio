@@ -1,39 +1,16 @@
 import React from "react";
 
-import styled from "@emotion/styled";
-
 import useWindowWidth from "../Hooks/useWindowDimensions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileText } from "@fortawesome/free-regular-svg-icons";
 
 import Socials from "./Socials";
+import styles from "../Styles/Components/hero";
 
-const HeroContainer = styled.header`
-  max-height: 100vh;
-  padding: 6rem 0px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: sticky;
-  top: 0;
-  justify-self: center;
-`;
-
-const P = styled.p`
-  text-transform: uppercase;
-  margin: 0;
-`;
-
-const Donwload = styled.button`
-  background-image: linear-gradient(180deg, #566ff8 0%, #394fdc 100%);
-  border: none;
-  border-radius: 5px;
-  font-size: 17px;
-  color: inherit;
-  cursor: pointer;
-  padding: 10px 16px;
-`;
+const HeroContainer = styles.HeroContainer;
+const P = styles.P;
+const Donwload = styles.Donwload;
 
 const Hero = () => {
   const windowWidth = useWindowWidth();

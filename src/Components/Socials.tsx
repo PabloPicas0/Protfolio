@@ -1,20 +1,11 @@
 import React from "react";
 
-import styled from "@emotion/styled";
-
 import { faGithub, faFreeCodeCamp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SocialMediaList = styled.ul`
-  display: flex;
-  padding: 0px;
-  gap: 20px;
-  list-style: none;
+import styles from "../Styles/Components/socials";
 
-  @media (max-width: 1065px) {
-    padding: 0;
-  }
-`;
+const SocialMediaList = styles.SocialMediaList;
 
 const mediaIcons = [
   { icon: faGithub, href: "https://github.com/PabloPicas0" },
@@ -40,4 +31,4 @@ const Socials = () => {
   );
 };
 
-export default Socials
+export default Socials;

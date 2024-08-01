@@ -2,27 +2,13 @@ import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
-import { Anchor, AnchorsWrapper } from "./ProjectsDetails";
-import styled from "@emotion/styled";
+import { Anchor, AnchorsWrapper } from "../Styles/Components/projectDetails";
 
-const Footer = styled.footer`
-  text-align: center;
-  color: rgba(255, 255, 255, 0.4);
-`;
+import styles from "../Styles/Components/contact";
 
-const H2 = styled.h2`
-  text-align: center;
-  letter-spacing: 0.05rem;
-  margin: 2rem 0rem;
-`;
-
-const P = styled.p`
-  margin: 2rem 0rem;
-
-  @media (max-width: 1065px) {
-    text-align: center;
-  }
-`;
+const Footer = styles.Footer;
+const H2 = styles.H2;
+const P = styles.P;
 
 const Contact = (props: { refSections: React.MutableRefObject<HTMLElement[]> }) => {
   const { refSections } = props;

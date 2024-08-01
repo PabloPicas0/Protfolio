@@ -1,20 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby";
-import React, { ReactNode } from "react";
 
-type SeoProps = {
-  title: string;
-  children?: ReactNode;
-};
+import React from "react";
 
-type Query = {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      meta: string;
-    };
-  };
-};
+import SeoProps from "../Controllers/SeoPropsController";
+import Query from "../Controllers/SeoQueryController";
 
 const Seo = (props: SeoProps) => {
   const { children, title } = props;
