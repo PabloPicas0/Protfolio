@@ -6,7 +6,6 @@ const styles = {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 200px;
       justify-content: center;
-      gap: 35px;
       max-width: 1444px;
       margin: 0px auto;
       padding: 0px 96px;
@@ -168,11 +167,8 @@ const styles = {
 
         .active {
           color:  rgb(226, 226, 240);
-
-          & > span {
-            width: 4rem;
-            background-color: rgb(226, 226, 240);
-          }
+          background-color: rgba(26, 41, 59, 0.5);
+          box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
         }
 
         .project-image {
@@ -191,4 +187,4 @@ const styles = {
         `,
 };
 
-export default styles
+export default styles;
