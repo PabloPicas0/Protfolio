@@ -2,7 +2,7 @@ import { type PageProps, type HeadFC, graphql, Link } from "gatsby";
 import React from "react";
 import Seo from "../Components/Seo";
 
-import { IndexPageData } from "../Controllers/IndexPageController";
+import { IndexPageData } from "../Models/IndexPageModel";
 
 import "../string.extensions";
 

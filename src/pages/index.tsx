@@ -14,9 +14,12 @@ import useWindowWidth from "../Hooks/useWindowDimensions";
 import Particle from "../Components/Particle";
 import Navigation from "../Components/Navigation";
 import NavigationMobile from "../Components/NavigationMobile";
-import { IndexPageData } from "../Controllers/IndexPageController";
+
+import { IndexPageData } from "../Models/IndexPageModel";
 
 import styles from "../Styles/Pages/Index";
+
+// TODO: Add resume page with resume and print option
 
 const Main = styles.components.Main;
 const Div = styles.components.Div;

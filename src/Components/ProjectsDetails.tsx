@@ -9,7 +9,7 @@ import mongodb from "../images/icons/mongodb.svg";
 import d3 from "../images/icons/d3.svg";
 import mui from "../images/icons/mui.svg";
 
-import { IndexPageData } from "../Controllers/IndexPageController";
+import { IndexPageData } from "../Models/IndexPageModel";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
