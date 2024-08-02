@@ -24,7 +24,6 @@ class Generator {
     this.fs = require("fs/promises");
     this.path = require("path");
     this.YAML = require("json-to-pretty-yaml");
-    this.ora = require("ora");
   }
 
   async getRepoDetails() {
@@ -55,9 +54,6 @@ class Generator {
   }
 
   async CreateFileStructure() {
-    const spinner = this.ora("Creating files").start();
-    spinner.collor = "yellow";
-
     for (let i = 0; i < this.folderPaths.length; ++i) {
       // If needed uncomment this line to remove all created files
       // await this.fs.rmdir(this.folderPaths[i], { recursive: true, force: true });
@@ -69,10 +65,6 @@ class Generator {
         "---\n" + this.YAML.stringify(this.reposData[i]) + "---"
       );
     }
-
-    spinner.collor = "green";
-    spinner.text = "Files created and ready to use";
-    spinner.stop();
 
     console.log("Folders generated at: ", this.folderPaths);
     console.log("---\n" + this.YAML.stringify(this.reposData[this.reposData.length - 1]) + "---");

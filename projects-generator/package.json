@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-to-pretty-yaml": "^1.2.2",
-    "ora": "^5.4.1"
+    "json-to-pretty-yaml": "^1.2.2"
   }
 }
