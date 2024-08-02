@@ -16,6 +16,7 @@ const styles = {
     border-radius: 10px;
     margin-bottom: 1.2rem;
     text-align: center;
+    transition: all 250ms;
 
     &:hover {
       a {
