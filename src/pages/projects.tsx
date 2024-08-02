@@ -63,7 +63,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
 
         <tbody>
           {data.allMdx.nodes.map((node) => {
-            const { title, techs, homepageUrl, date } = node.frontmatter;
+            const { title, techs, homepageUrl, date, repoUrl } = node.frontmatter;
             const { id } = node;
 
             return (
@@ -103,7 +103,7 @@ const Projects: React.FC<PageProps<IndexPageData>> = (props) => {
                 </ColumnTech>
 
                 <ColumnLive windowWidth={windowWidth}>
-                  <a target="_blank" href={homepageUrl}>
+                  <a target="_blank" href={homepageUrl || repoUrl}>
                     Live
                     <FontAwesomeIcon
                       icon={faArrowRight}
