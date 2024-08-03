@@ -190,6 +190,14 @@ const styles = {
         }
 
         .resume-link {
+          background-image: linear-gradient(180deg, #566ff8 0%, #394fdc 100%);
+          border: none;
+          border-radius: 5px;
+          font-size: 17px;
+          color: inherit;
+          cursor: pointer;
+          padding: 10px 16px;
+          text-align: center;
           text-decoration: none;
           color: inherit;
         }

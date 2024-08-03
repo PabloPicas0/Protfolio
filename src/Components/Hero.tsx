@@ -12,7 +12,6 @@ import { Link } from "gatsby";
 
 const HeroContainer = styles.HeroContainer;
 const P = styles.P;
-const Donwload = styles.Donwload;
 
 const Hero = () => {
   const windowWidth = useWindowWidth();
@@ -25,12 +24,10 @@ const Hero = () => {
 
         <Socials />
 
-        <Donwload>
-          <Link to="/resume" className="resume-link">
-            <FontAwesomeIcon icon={faFileText} className="resume-icon" />
-            Resume
-          </Link>
-        </Donwload>
+        <Link to="/resume" className="resume-link">
+          <FontAwesomeIcon icon={faFileText} className="resume-icon" />
+          Resume
+        </Link>
       </HeroContainer>
     )
   );
