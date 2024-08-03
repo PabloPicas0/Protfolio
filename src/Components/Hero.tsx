@@ -8,6 +8,8 @@ import { faFileText } from "@fortawesome/free-regular-svg-icons";
 import Socials from "./Socials";
 import styles from "../Styles/Components/hero";
 
+import { Link } from "gatsby";
+
 const HeroContainer = styles.HeroContainer;
 const P = styles.P;
 const Donwload = styles.Donwload;
@@ -24,8 +26,10 @@ const Hero = () => {
         <Socials />
 
         <Donwload>
-          <FontAwesomeIcon icon={faFileText} className="resume-icon" />
-          Resume
+          <Link to="/resume" className="resume-link">
+            <FontAwesomeIcon icon={faFileText} className="resume-icon" />
+            Resume
+          </Link>
         </Donwload>
       </HeroContainer>
     )

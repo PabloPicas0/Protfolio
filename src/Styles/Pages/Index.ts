@@ -183,6 +183,11 @@ const styles = {
           margin: 0rem 0rem 17rem 0rem
         }
 
+        .resume-link {
+          text-decoration: none;
+          color: inherit;
+        }
+
         .resume-icon {
           margin-right: 10px
         }

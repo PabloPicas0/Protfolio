@@ -4,10 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faContactBook, faFileText, faStar, faSuitcase, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../Styles/Components/navigation";
+import styled from "@emotion/styled";
+
+import GatsbyLink from "./GatsbyLink";
 
 const List = styles.List;
 const Item = styles.Item;
 const Anchor = styles.Anchor;
+const Resume = styled(GatsbyLink)<{ isDesktop: boolean }>`
+  display: grid;
+  justify-items: center;
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 0.05rem;
+  font-size: ${(props) => (props.isDesktop ? "1rem" : "1.3rem")};
+`;
 
 const anchors = [
   { text: "Major Projects", href: "#major-projects", icon: faStar },
@@ -45,10 +56,10 @@ const Navigation = (props: {
 
       {!isDesktop && (
         <Item>
-          <Anchor href="#" isDesktop={isDesktop}>
+          <Resume isDesktop={isDesktop}>
             <FontAwesomeIcon icon={faFileText} fontSize={"1.2rem"} className="nav-icon" />
             Resume
-          </Anchor>
+          </Resume>
         </Item>
       )}
     </List>
