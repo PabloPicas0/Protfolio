@@ -123,6 +123,12 @@ const styles = {
           margin-bottom: 12rem !important;
           scroll-margin-top: 8rem;
         }
+
+        .about-title {
+          @media (max-width: 1065px) {
+            text-align: center;
+          }
+        }
          
         .about-content { 
           line-height: 1.625rem;
