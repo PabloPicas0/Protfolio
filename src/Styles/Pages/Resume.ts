@@ -70,6 +70,14 @@ const styles = {
       margin: 0;
       text-align: justify;
     `,
+    School: styled.div`
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: 0.7rem;
+      }
+    `,
     Project: styled.a`
       text-decoration: none;
       color: inherit;
@@ -81,7 +89,7 @@ const styles = {
     SkillLink: styled.a`
       text-decoration: none;
       color: inherit;
-    `
+    `,
   },
   head: `
         * {
