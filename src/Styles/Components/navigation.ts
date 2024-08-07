@@ -9,6 +9,7 @@ const styles = {
 
     @media (max-width: 1065px) {
       color: rgb(215 223 239);
+      margin: 0;
     }
   `,
   Item: styled.li`
@@ -29,7 +30,7 @@ const styles = {
     }
 
     @media (max-width: 1065px) {
-      margin: 0 auto 1.5rem auto;
+      margin: 0 auto 10px auto;
     }
   `,
   Anchor: styled.a<{ isDesktop: boolean }>`
