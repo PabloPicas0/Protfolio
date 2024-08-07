@@ -45,7 +45,7 @@ const styles = {
     display: ${(props) => (props.isClicked ? "flex" : "none")};
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 0.5rem;
     align-items: center;
     background-color: #663399;
   `,

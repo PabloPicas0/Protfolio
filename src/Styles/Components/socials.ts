@@ -8,7 +8,7 @@ const styles = {
     list-style: none;
 
     @media (max-width: 1065px) {
-      padding: 0;
+      margin: 0;
     }
   `,
 };
