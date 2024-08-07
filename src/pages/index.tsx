@@ -19,8 +19,6 @@ import { IndexPageData } from "../Models/IndexPageModel";
 
 import styles from "../Styles/Pages/Index";
 
-// TODO: Add resume page with resume and print option
-
 const Main = styles.components.Main;
 const Div = styles.components.Div;
 const Nav = styles.components.Nav;
