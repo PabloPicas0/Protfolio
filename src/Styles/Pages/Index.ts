@@ -100,6 +100,10 @@ const styles = {
           box-sizing: border-box;
         } 
 
+        html {
+         scroll-behavior: smooth;
+        }
+
         body {
           color: rgb(226, 226, 240);
           margin: 0px;
