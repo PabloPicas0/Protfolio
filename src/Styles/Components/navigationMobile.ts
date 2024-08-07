@@ -38,13 +38,14 @@ const styles = {
   Popup: styled.div<{ isClicked: boolean }>`
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
     display: ${(props) => (props.isClicked ? "flex" : "none")};
     flex-direction: column;
     justify-content: center;
-    gap: 6rem;
+    gap: 2rem;
     align-items: center;
     background-color: #663399;
   `,
