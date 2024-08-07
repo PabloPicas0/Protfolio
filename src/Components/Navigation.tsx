@@ -29,12 +29,17 @@ const anchors = [
 const Navigation = (props: {
   isDesktop: boolean;
   refNavigation?: React.MutableRefObject<HTMLUListElement | null>;
+  setIsClicked?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { isDesktop, refNavigation } = props;
+  const { isDesktop, refNavigation, setIsClicked } = props;
+
+  const handleClick = () => {
+    if (setIsClicked) setIsClicked(false);
+  };
 
   return (
     <List ref={refNavigation}>
-      <Item className={isDesktop ? "active" : ""}>
+      <Item className={isDesktop ? "active" : ""} onClick={() => handleClick()}>
         <Anchor href="#about" isDesktop={isDesktop}>
           <FontAwesomeIcon icon={faUserAlt} fontSize={"1.2rem"} className="nav-icon" />
           About
@@ -45,7 +50,7 @@ const Navigation = (props: {
         const { text, href, icon } = anchor;
 
         return (
-          <Item key={text}>
+          <Item key={text} onClick={() => handleClick()}>
             <Anchor href={href} isDesktop={isDesktop}>
               <FontAwesomeIcon icon={icon} fontSize={"1.2rem"} className="nav-icon" />
               {text}
@@ -55,7 +60,7 @@ const Navigation = (props: {
       })}
 
       {!isDesktop && (
-        <Item>
+        <Item onClick={() => handleClick()}>
           <Resume isDesktop={isDesktop}>
             <FontAwesomeIcon icon={faFileText} fontSize={"1.2rem"} className="nav-icon" />
             Resume

@@ -23,7 +23,7 @@ const NavigationMobile = () => {
 
       <Popup isClicked={isClicked}>
         <nav>
-          <Navigation isDesktop={false} />
+          <Navigation isDesktop={false} setIsClicked={setIsClicked}/>
         </nav>
 
         <Socials />
