@@ -102,6 +102,7 @@ const styles = {
 
         html {
          scroll-behavior: smooth;
+         scroll-padding-top: 45.5px;
         }
 
         body {
