@@ -89,7 +89,7 @@ const projects = [
   },
   {
     title: "Any Task",
-    stack: ["Mongo DB", "Express", "React", "Material UI"],
+    stack: ["Mongo DB", "Express", "React", "TypeScript"],
     description:
       "Any Task is fullstack app that let's user track current job. Extended functionality like room creation or permissions allow for working in team environment.",
     link: "#",
