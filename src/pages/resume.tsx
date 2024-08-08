@@ -43,8 +43,8 @@ const contact = {
   ],
   rest: [
     { src: faEnvelope, alt: "email", text: "pawel.fe@gmail.com" },
-    { src: faMobileAlt, alt: "mobile", text: "+48 000 000 000" },
-    { src: faLocationDot, alt: "location", text: "HR, Poland" },
+    { src: faMobileAlt, alt: "mobile", text: "+48 791 106 582" },
+    { src: faLocationDot, alt: "location", text: "Hrubieszów, Poland" },
   ],
 };
 
@@ -92,7 +92,7 @@ const projects = [
     stack: ["Mongo DB", "Express", "React", "TypeScript"],
     description:
       "Any Task is fullstack app that let's user track current job. Extended functionality like room creation or permissions allow for working in team environment.",
-    link: "#",
+    link: "https://pablopicas0.github.io/Any-Task/",
   },
 ];
 
