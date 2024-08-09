@@ -19,6 +19,8 @@ const styles = {
       border-right: 1px solid black;
     `,
     RightColumn: styled.div`
+      display: grid;
+      align-content: space-between;
       padding: 13px;
     `,
     List: styled.ul`
@@ -90,6 +92,9 @@ const styles = {
       text-decoration: none;
       color: inherit;
     `,
+    RODO: styled.footer`
+      font-size: 10px
+    `
   },
   head: `
         * {

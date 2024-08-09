@@ -24,7 +24,8 @@ const Title = styles.components.Title;
 const Heading = styles.components.Heading;
 const SubTitle = styles.components.SubTitle;
 const Description = styles.components.Description;
-const School = styles.components.School
+const School = styles.components.School;
+const RODO = styles.components.RODO
 
 const contact = {
   links: [
@@ -161,73 +162,80 @@ const Resume: React.FC<PageProps> = () => {
       </LeftColumn>
 
       <RightColumn>
-        <h1 className="hero">Paweł Feliksiak</h1>
+        <div>
+          <h1 className="hero">Paweł Feliksiak</h1>
 
-        <section>
-          <Title>Summary</Title>
-          <Description>
-            Front-end developer that has 2 year of experience developing web applications and building
-            websites. Actively broadens his knowledge in JavaScript ecosystem and looking for new challenges
-            in this area.
-          </Description>
-        </section>
+          <section>
+            <Title>Summary</Title>
+            <Description>
+              Front-end developer that has 2 year of experience developing web applications and building
+              websites. Actively broadens his knowledge in JavaScript ecosystem and looking for new challenges
+              in this area.
+            </Description>
+          </section>
 
-        <section>
-          <Title>Projects</Title>
+          <section>
+            <Title>Projects</Title>
 
-          <List>
-            {projects.map((project) => {
-              const { description, stack, title, link } = project;
+            <List>
+              {projects.map((project) => {
+                const { description, stack, title, link } = project;
 
-              return (
-                <ProjectItem key={title}>
-                  <Project href={link} target="_blank">
-                    <SubTitle>{title}</SubTitle>
+                return (
+                  <ProjectItem key={title}>
+                    <Project href={link} target="_blank">
+                      <SubTitle>{title}</SubTitle>
 
-                    <StackList>
-                      {stack.map((tech, idx) => (
-                        <StackItem key={tech + "-" + idx}>{tech}</StackItem>
-                      ))}
-                    </StackList>
+                      <StackList>
+                        {stack.map((tech, idx) => (
+                          <StackItem key={tech + "-" + idx}>{tech}</StackItem>
+                        ))}
+                      </StackList>
 
-                    <Description>{description}</Description>
-                  </Project>
-                </ProjectItem>
-              );
-            })}
-          </List>
-        </section>
+                      <Description>{description}</Description>
+                    </Project>
+                  </ProjectItem>
+                );
+              })}
+            </List>
+          </section>
 
-        <section>
-          <Title>Certificates</Title>
+          <section>
+            <Title>Certificates</Title>
 
-          <List>
-            {certificates.map((certificate) => (
-              <SkillItem key={certificate.certificateName}>
-                <span className="certificate">{certificate.certificateName}</span>
-                {" — "}
-                {certificate.from}
-              </SkillItem>
-            ))}
-          </List>
-        </section>
+            <List>
+              {certificates.map((certificate) => (
+                <SkillItem key={certificate.certificateName}>
+                  <span className="certificate">{certificate.certificateName}</span>
+                  {" — "}
+                  {certificate.from}
+                </SkillItem>
+              ))}
+            </List>
+          </section>
 
-        <section>
-          <Title>Education</Title>
+          <section>
+            <Title>Education</Title>
 
-          <List>
-            <li>
-              <Description>
-                <strong>National Security, Master's degree</strong>
-              </Description>
+            <List>
+              <li>
+                <Description>
+                  <strong>National Security, Master's degree</strong>
+                </Description>
 
-              <School>
-                Academy of Zamość
-                <span>Sep 2019 - Sep 2024</span>
-              </School>
-            </li>
-          </List>
-        </section>
+                <School>
+                  Academy of Zamość
+                  <span>Sep 2019 - Sep 2024</span>
+                </School>
+              </li>
+            </List>
+          </section>
+        </div>
+
+        <RODO>
+          I hereby consent to my personal data being processed by (company name) for the purpose of
+          considering my application for the vacancy advertised under reference number (123XX6 etc.).
+        </RODO>
       </RightColumn>
     </Container>
   );
