@@ -25,7 +25,7 @@ const Heading = styles.components.Heading;
 const SubTitle = styles.components.SubTitle;
 const Description = styles.components.Description;
 const School = styles.components.School;
-const RODO = styles.components.RODO
+const RODO = styles.components.RODO;
 
 const contact = {
   links: [
@@ -133,6 +133,9 @@ const Resume: React.FC<PageProps> = () => {
                 <SkillItem key={alt}>
                   <FontAwesomeIcon icon={src} className="icon" />
                   {text}
+                  {alt === "location" ? (
+                    <div style={{ paddingLeft: 16 + 10 + "px" }}>{"(Willing to relocate)"}</div>
+                  ) : null}
                 </SkillItem>
               );
             })}
