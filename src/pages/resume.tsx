@@ -171,7 +171,7 @@ const Resume: React.FC<PageProps> = () => {
           <section>
             <Title>Summary</Title>
             <Description>
-              Front-end developer that has 2 year of experience developing web applications and building
+              Front-end developer that has 1 year of experience developing web applications and building
               websites. Actively broadens his knowledge in JavaScript ecosystem and looking for new challenges
               in this area.
             </Description>
